@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/11 17:11:30 by aburnott         ###   ########.fr       */
+/*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
+/*   Updated: 2022/10/28 13:33:32 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-int main(int ac, char *av)
-{
-	//call parsing function
-		
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+
+char	*free_all(char *save, char *buf);
+int		search_n(char *save);
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *save, char *buf, int buf_len);
+char	*get_next_line(int fd);
+
+#endif
