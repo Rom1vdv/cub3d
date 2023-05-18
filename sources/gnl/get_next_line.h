@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/28 13:33:32 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/19 00:00:58 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 char	*free_all(char *save, char *buf);
 int		search_n(char *save);
-int		ft_strlen(char *s);
 char	*ft_strjoin(char *save, char *buf, int buf_len);
 char	*get_next_line(int fd);
+int     ft_strlen(char *s);
 
 #endif

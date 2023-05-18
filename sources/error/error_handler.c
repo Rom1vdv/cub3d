@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/19 00:00:39 by aburnott         ###   ########.fr       */
+/*   Created: 2023/05/18 21:39:01 by aburnott          #+#    #+#             */
+/*   Updated: 2023/05/18 22:06:36 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../includes/cub3d.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <errno.h>
-# include <math.h>
-# include <fcntl.h>
-# include "parsing.h"
-# include "error.h"
-# include "utils.h"
-# include "../mlx/mlx.h"
-# include "../sources/gnl/get_next_line.h"
+void	error(char *str, int code, int need_free)
+{
+    (void) need_free;
 
-#endif
+    if (code)
+        perror("Error");
+    else
+    {
+        ft_putstr("Error: ", 2);
+        ft_putstr(str, 2);
+    }
+    exit(errno);
+}
