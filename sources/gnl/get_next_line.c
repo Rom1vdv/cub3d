@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:28 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/11 12:05:33 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:15:48 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,21 +84,21 @@ static char	*after_n(char *save, int count)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[OPEN_MAX];
+	static char	*save;
 	char		*line;
 	int			i;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	save[fd] = read_line(fd, save[fd]);
-	if (!save[fd])
+	save = read_line(fd, save);
+	if (!save)
 		return (0);
-	line = before_n(save[fd], &i);
+	line = before_n(save, &i);
 	if (!line)
 	{
-		save[fd] = 0;
+		save = 0;
 		return (0);
 	}
-	save[fd] = after_n(save[fd], i);
+	save = after_n(save, i);
 	return (line);
 }
