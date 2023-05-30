@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/19 00:00:39 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/21 23:06:36 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <errno.h>
 # include <math.h>
 # include <fcntl.h>
+# include <string.h>
 # include "parsing.h"
 # include "error.h"
 # include "utils.h"

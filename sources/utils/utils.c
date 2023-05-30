@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:00:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/19 00:07:27 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:02:42 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,19 @@ char	*ft_strdup(char *s, int start, int end)
     dup[i] = '\0';
     return (dup);
 }
-// {
-// 	size_t	len;
-// 	size_t	i;
-// 	char	*dup;
 
-// 	len = ft_strlen(s);
-// 	dup = malloc(sizeof(*dup) * len + 1);
-// 	if (!dup)
-// 		return (0);
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		dup[i] = s[i];
-// 		i++;
-// 	}
-// 	dup[i] = '\0';
-// 	return (dup);
-// }
+int		ft_strncmp(char *s1, char *s2, size_t n)
+{
+    size_t	i;
+
+    i = 0;
+    while (s1[i] && s2[i] && i < n)
+    {
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[i]);
+        i++;
+    }
+    if (i == n)
+        return (0);
+    return (s1[i] - s2[i]);
+}

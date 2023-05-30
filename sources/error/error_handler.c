@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:39:01 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/26 17:01:40 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:05:47 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	error(char *str, int code, int need_free)
     (void) need_free;
 
     if (code)
-        perror("Error");
+        perror("Error\n");
     else
     {
-        ft_putstr("Error:\n", 2);
+        ft_putstr("Error\n", 2);
         ft_putstr(str, 2);
     }
     exit(errno);

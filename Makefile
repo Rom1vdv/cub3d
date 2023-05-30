@@ -6,7 +6,7 @@
 #    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/05/19 00:00:28 by aburnott         ###   ########.fr        #
+#    Updated: 2023/05/21 23:08:31 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ OBJS_DIR = objs
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
+SFLAGS = -g3 -fsanitize=address
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
@@ -43,7 +44,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
