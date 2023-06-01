@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/31 01:09:53 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:29:49 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int	store_map(int fd)
 	return (0);
 }
 
-int	get_map_size(int fd)
+int	get_map_size(char *line, t_cub *cub)
 {
-	(void) fd;
+	(void) line;
+	(void) cub;
 	return (0);
 }

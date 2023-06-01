@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/31 01:12:16 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:29:42 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef struct s_cub
 }   t_cub;
 
 int     check_file(char *file, t_cub *cub);
+int		get_map_size(char *line, t_cub *cub);
 
 #endif
