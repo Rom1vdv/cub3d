@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/02 16:11:36 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:55:53 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct s_textures
     char    *so;
     char    *we;
     char    *ea;
-    char    *s;
     char    *f;
     char    *c;
 }   t_textures;
@@ -50,5 +49,6 @@ typedef struct s_cub
 
 int     check_file(char *file, t_cub *cub);
 int		get_map_size(char *line, t_cub *cub);
+char	*check_texture(char *path);
 
 #endif

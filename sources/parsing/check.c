@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/02 22:16:28 by aburnott         ###   ########.fr       */
+/*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
+/*   Updated: 2023/06/02 22:03:03 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-int	store_map(int fd)
+char	*check_texture(char *path)
 {
-    (void) fd;
-	return (0);
-}
+	int	fd;
 
-int	get_map_size(char *line, t_cub *cub)
-{
-	(void) line;
-	(void) cub;
-	return (0);
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (path);
 }

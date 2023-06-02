@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+         #
+#    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/02 15:28:05 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/02 21:56:55 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = main.c \
 		gnl/get_next_line_utils.c \
 		parsing/check_map.c \
 		parsing/parsing.c \
+		parsing/check.c \
 		utils/utils.c \
 		init_mlx/init_mlx.c \
 		init_mlx/mlx_utils.c
