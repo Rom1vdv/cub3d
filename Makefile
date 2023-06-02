@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
+#    By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/05/21 23:08:31 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/02 15:28:05 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRCS = main.c \
 		gnl/get_next_line_utils.c \
 		parsing/check_map.c \
 		parsing/parsing.c \
-		utils/utils.c
+		utils/utils.c \
+		init_mlx/init_mlx.c \
+		init_mlx/mlx_utils.c
 OBJS_DIR = objs
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
@@ -44,7 +46,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SFLAGS) -g $(MLXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
