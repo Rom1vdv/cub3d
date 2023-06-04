@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/02 21:55:53 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:04:43 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ typedef struct s_textures
 typedef struct s_map
 {
     char    **map;
+	int    	start_line;
     int     x;
     int     y;
+	int		player_found;
+	int		player_x;
+	int		player_y;
 }   t_map;
 
 typedef struct s_xpm_file
@@ -50,5 +54,6 @@ typedef struct s_cub
 int     check_file(char *file, t_cub *cub);
 int		get_map_size(char *line, t_cub *cub);
 char	*check_texture(char *path);
+int		store_map(char *file, t_cub *cub);
 
 #endif

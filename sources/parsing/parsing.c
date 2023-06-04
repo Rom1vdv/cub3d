@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/02 22:03:26 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/04 10:16:22 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	get_texture(char *line, int type, t_cub *cub)
 	return (0);
 }
 
-void	catch_textures(char *line, t_cub *cub)
+void	catch_textures(char *line, t_cub *cub, int line_count)
 {
 	int		res;
 	int		i;
@@ -62,7 +62,11 @@ void	catch_textures(char *line, t_cub *cub)
 		while (line[i] == ' ')
 			i++;
 		if (line[i] == '1')
+		{
+			if (cub->map.start_line == 0)
+				cub->map.start_line = line_count;
 			res = get_map_size(line, cub);
+		}
 		else
 			error("Something went wrong with the map\n", 0, 0);
 	}
@@ -88,8 +92,10 @@ int	check_file(char *file, t_cub *cub)
 {
     int	fd;
     char *line;
+	int	line_count;
 
 	line = "";
+	line_count = 0;
 	fd = open(file, O_RDONLY);
     if (fd == -1)
         error("Can't open file\n", 1, 0);
@@ -97,10 +103,15 @@ int	check_file(char *file, t_cub *cub)
     {
         line = get_next_line(fd);
 		if (!line)
+		{
+			free(line);
 			break ;
-        catch_textures(line, cub);
+		}
+		line_count++;
+		catch_textures(line, cub, line_count);
         free(line);
     }
-	
+	close(fd);
+	store_map(file, cub);
 	return (0);
 }

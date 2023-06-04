@@ -6,7 +6,7 @@
 #    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/02 21:56:55 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/04 10:33:43 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = main.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		parsing/check_map.c \
+		parsing/get_map.c \
 		parsing/parsing.c \
 		parsing/check.c \
 		utils/utils.c \
