@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 22:18:56 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:33:45 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	get_color(char *line, int type, t_cub *cub)
 {
     if (type == 1)
-		cub->textures.f = ft_strdup(line, 2, ft_strlen(line));
+		set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 2);
 	else if (type == 2)
-		cub->textures.c = ft_strdup(line, 2, ft_strlen(line));
+		set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 1);
 	return (0);
 }
 
@@ -114,7 +114,7 @@ int	check_file(char *file, t_cub *cub)
 	close(fd);
 	store_map(file, cub);
 	printf("Map size: %d x %d\n", cub->map.x, cub->map.y);
-	if (!check_map(cub))
+	if (!check_map(cub) || !cub->map.player_found)
 		error("Something went wrong with the map\n", 0, 0);
 	return (0);
 }

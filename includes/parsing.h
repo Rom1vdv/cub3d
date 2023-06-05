@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 22:18:12 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:32:11 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_map
 	int		player_y;
 	int		map_error;
 	int		player_patch;
+	unsigned int		floor;
+	unsigned int		ceiling;
 }   t_map;
 
 typedef struct s_xpm_file
@@ -58,5 +60,6 @@ int		get_map_size(char *line, t_cub *cub);
 char	*check_texture(char *path);
 int		store_map(char *file, t_cub *cub);
 int		check_map(t_cub *cub);
+int		set_color(t_cub *cub, char *line, int type);
 
 #endif

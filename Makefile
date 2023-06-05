@@ -6,7 +6,7 @@
 #    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/05 14:52:33 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/05 23:30:57 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS = main.c \
 		parsing/parsing.c \
 		parsing/check.c \
 		utils/utils.c \
+		utils/utils2.c \
+		utils/ft_split.c \
 		init_mlx/init_mlx.c \
 		init_mlx/mlx_utils.c
 OBJS_DIR = objs
