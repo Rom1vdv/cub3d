@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/04 10:16:22 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/05 22:18:56 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,8 @@ int	check_file(char *file, t_cub *cub)
     }
 	close(fd);
 	store_map(file, cub);
+	printf("Map size: %d x %d\n", cub->map.x, cub->map.y);
+	if (!check_map(cub))
+		error("Something went wrong with the map\n", 0, 0);
 	return (0);
 }

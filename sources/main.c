@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/04 10:05:08 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:28:55 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void    init_struc(char *av)
 	cub.map.player_found = 0;
 	cub.map.player_x = 0;
 	cub.map.player_y = 0;
+	cub.map.player_patch = 0;
+	cub.map.map_error = 0;
     cub.xpm_file.wall_no = 0;
     cub.xpm_file.wall_so = 0;
     cub.xpm_file.wall_we = 0;
