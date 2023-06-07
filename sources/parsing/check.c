@@ -32,17 +32,23 @@ int	set_color(t_cub *cub, char *line, int type)
 	rgb = ft_split(line, ',');
 	if (!rgb)
 		return (-1);
-	if (rgb[0] && rgb[1] && rgb[2])
-	{
-		while (i < 3)
-		{
-			current = ft_atoi(rgb[i]);
-			if (current < 0 || current > 255)
-				error("Invalid RGB value");
-			
-		}
-	}
-	else
+    if (rgb[0] && rgb[1] && rgb[2])
+    {
+        i = 0;
+        current = 0;
+        while (rgb[i])
+        {
+            current = ft_atoi(rgb[i]);
+            if (current < 0 || current > 255)
+                return (-1);
+            if (type == 1)
+                cub->map.ceiling = (cub->map.ceiling << 8) + current;
+            else
+                cub->map.floor = (cub->map.floor << 8) + current;
+            i++;
+        }
+    }
+    else
 		return (-1);
 	printf("color set\n");
 	printf("ceiling: %d\n", cub->map.ceiling);

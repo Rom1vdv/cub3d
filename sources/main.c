@@ -45,7 +45,7 @@ void    init_struc(char *av)
 
 int main(int ac, char **av)
 {
-    //t_mlx  mlx;
+    t_mlx  mlx;
 
 	if (ac != 2)
         error("Wrong number of arguments\n", 0, 0);
@@ -55,8 +55,8 @@ int main(int ac, char **av)
     }
     init_struc(av[1]);
 	printf("init of mlx will be called");
-    //if (!init_mlx(&mlx))
-        //error("Error while initializing mlx\n", 0, 0);
-    //run_mlx(&mlx);
+    if (!init_mlx(&mlx))
+        error("Error while initializing mlx\n", 0, 0);
+    run_mlx(&mlx);
 	return (0);
 }
