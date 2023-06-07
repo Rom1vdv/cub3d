@@ -6,13 +6,13 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 09:40:27 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:47:57 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-char *read_current_line(int fd)
+char	*read_current_line(int fd)
 {
 	char	*line;
 
@@ -48,7 +48,7 @@ int	store_map(char *file, t_cub *cub)
 		i++;
 	}
 	i = 0;
-	while(i < cub->map.x)
+	while (i < cub->map.x)
 	{
 		line = read_current_line(fd);
 		if (!line)
@@ -77,7 +77,8 @@ int	get_map_size(char *line, t_cub *cub)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'W' || line[i] == 'E')
+		if (line[i] == 'N' || line[i] == 'S'
+			|| line[i] == 'W' || line[i] == 'E')
 		{
 			cub->map.player_x = cub->map.x;
 			cub->map.player_y = i;

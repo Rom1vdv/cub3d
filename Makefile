@@ -6,7 +6,7 @@
 #    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/07 09:42:46 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/07 16:08:03 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = main.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/ft_split.c \
-		init_mlx/init_mlx.c \
+		#init_mlx/init_mlx.c \
 		init_mlx/mlx_utils.c
 OBJS_DIR = objs
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 10:33:59 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 09:45:18 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:46:51 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_map(t_cub *cub)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < cub->map.x)
 	{
@@ -25,20 +25,28 @@ int	check_map(t_cub *cub)
 		{
 			if (cub->map.map[i][j] != '1' && cub->map.map[i][j] != ' ')
 			{
-				if (cub->map.map[i][j] == '0' && (i == 0 || i == cub->map.x - 1))
+				if (cub->map.map[i][j] == '0'
+						&& (i == 0 || i == cub->map.x - 1))
 					return (0);
-				else if ((cub->map.map[i][j] == '0' && cub->map.map[i][j + 1] == ' ')
+				else if ((cub->map.map[i][j] == '0'
+					&& cub->map.map[i][j + 1] == ' ')
 							|| cub->map.map[i][j + 1] == '\0')
 					return (0);
-				else if (cub->map.map[i][j] == '0' && cub->map.map[i][j - 1] == ' ')
+				else if (cub->map.map[i][j] == '0'
+						&& cub->map.map[i][j - 1] == ' ')
 					return (0);
-				else if (cub->map.map[i][j] == '0' && cub->map.map[i - 1][j] == ' ')
+				else if (cub->map.map[i][j] == '0'
+						&& cub->map.map[i - 1][j] == ' ')
 					return (0);
-				else if (cub->map.map[i][j] == '0' && cub->map.map[i + 1][j] == ' ')
+				else if (cub->map.map[i][j] == '0'
+						&& cub->map.map[i + 1][j] == ' ')
 					return (0);
-				else if (cub->map.map[i][j] != ' ' && cub->map.map[i][j] != '1'
-						&& cub->map.map[i][j] != '0' && cub->map.map[i][j] != 'N'
-						&& cub->map.map[i][j] != 'S' && cub->map.map[i][j] != 'E'
+				else if (cub->map.map[i][j] != ' '
+						&& cub->map.map[i][j] != '1'
+						&& cub->map.map[i][j] != '0'
+						&& cub->map.map[i][j] != 'N'
+						&& cub->map.map[i][j] != 'S'
+						&& cub->map.map[i][j] != 'E'
 						&& cub->map.map[i][j] != 'W')
 				{
 					printf("Invalid character in map: <%c> Coordinate: i: %d j: %d\n", cub->map.map[i][j], i, j);
