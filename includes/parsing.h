@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 23:32:11 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:48:47 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_xpm_file
 
 typedef struct s_cub
 {
+	int			a_error;
     t_textures  textures;
     t_map       map;
     t_xpm_file  xpm_file;

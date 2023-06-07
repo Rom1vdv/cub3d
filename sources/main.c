@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 23:15:32 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:49:14 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void    init_struc(char *av)
 {
     t_cub       cub;
     
+	cub.a_error = 0;
     cub.textures.no = 0;
     cub.textures.so = 0;
     cub.textures.we = 0;
@@ -44,7 +45,7 @@ void    init_struc(char *av)
 
 int main(int ac, char **av)
 {
-    t_mlx  mlx;
+    //t_mlx  mlx;
 
 	if (ac != 2)
         error("Wrong number of arguments\n", 0, 0);
@@ -53,8 +54,9 @@ int main(int ac, char **av)
         error("Wrong file extension\n", 0, 0);
     }
     init_struc(av[1]);
-    if (!init_mlx(&mlx))
-        error("Error while initializing mlx\n", 0, 0);
-    run_mlx(&mlx);
+	printf("init of mlx will be called");
+    //if (!init_mlx(&mlx))
+        //error("Error while initializing mlx\n", 0, 0);
+    //run_mlx(&mlx);
 	return (0);
 }

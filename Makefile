@@ -6,7 +6,7 @@
 #    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/05 23:30:57 by aburnott         ###   ########.fr        #
+#    Updated: 2023/06/07 09:42:46 by aburnott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ SRCS = main.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/ft_split.c \
-		init_mlx/init_mlx.c \
+		#init_mlx/init_mlx.c \
 		init_mlx/mlx_utils.c
 OBJS_DIR = objs
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
-SFLAGS = -g3 -fsanitize=address
+#SFLAGS = -g3 -fsanitize=address
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
@@ -50,7 +50,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-	@$(CC) $(CFLAGS) $(SFLAGS) -g $(MLXFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)

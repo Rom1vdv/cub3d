@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/06 16:47:17 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:57:38 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,20 @@ char	*check_texture(char *path)
 int	set_color(t_cub *cub, char *line, int type)
 {
 	char **rgb;
+	int	i;
+	int	current;
 	
 	rgb = ft_split(line, ',');
 	if (!rgb)
 		return (-1);
 	if (rgb[0] && rgb[1] && rgb[2])
 	{
-		if (type == 1)
+		while (i < 3)
 		{
-			cub->map.ceiling = ft_atoi(rgb[0]);
-			cub->map.ceiling = (cub->map.ceiling << 8) + ft_atoi(rgb[1]);
-			cub->map.ceiling = (cub->map.ceiling << 8) + ft_atoi(rgb[2]);
-		}
-		else if (type == 2)
-		{
-			cub->map.floor = ft_atoi(rgb[0]);
-			cub->map.floor = (cub->map.floor << 8) + ft_atoi(rgb[1]);
-			cub->map.floor = (cub->map.floor << 8) + ft_atoi(rgb[2]);
+			current = ft_atoi(rgb[i]);
+			if (current < 0 || current > 255)
+				error("Invalid RGB value");
+			
 		}
 	}
 	else

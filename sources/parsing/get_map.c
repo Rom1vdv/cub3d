@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/04 10:34:53 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:40:27 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	store_map(char *file, t_cub *cub)
 		line = read_current_line(fd);
 		if (!line)
 			return (-1);
+		free(line);
 		i++;
 	}
 	i = 0;
@@ -53,6 +54,7 @@ int	store_map(char *file, t_cub *cub)
 		if (!line)
 			return (-1);
 		cub->map.map[i] = ft_strdup_modif(line, 0, (cub->map.y - 1));
+		free(line);
 		i++;
 	}
 	close(fd);

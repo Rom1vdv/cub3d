@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 10:33:59 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 22:34:02 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:45:18 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	check_map(t_cub *cub)
 			{
 				if (cub->map.map[i][j] == '0' && (i == 0 || i == cub->map.x - 1))
 					return (0);
-				else if (cub->map.map[i][j] == '0' && cub->map.map[i][j + 1] == ' ')
+				else if ((cub->map.map[i][j] == '0' && cub->map.map[i][j + 1] == ' ')
+							|| cub->map.map[i][j + 1] == '\0')
 					return (0);
 				else if (cub->map.map[i][j] == '0' && cub->map.map[i][j - 1] == ' ')
 					return (0);
