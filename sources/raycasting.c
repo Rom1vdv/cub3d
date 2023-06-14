@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rom1 <rom1@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/14 02:09:16 by rom1             ###   ########.fr       */
+/*   Updated: 2023/06/14 16:01:56 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
-void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
-		t_wall *wall, int *x)
+void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x)
 {
 	int	x_coord;
 
 	x_coord = *x;
-	camera->current_x = 2 * x_coord / (double)SCREEN_WIDTH - 1;
+	camera->current_x = (2 * x_coord / (double)SCREEN_WIDTH) - 1;
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
 	ray->direction_y = player->director_vector_y + camera->plane_y
@@ -30,11 +29,11 @@ void	calculate_length_to_next_x(t_ray *ray)
 	if (ray->direction_x == 0)
 		ray->direction_x = __INT_MAX__;
 	else
-		fabs(1 / ray->direction_x);
+		ray->distance_to_next_x = (1 / ray->direction_x);
 	if (ray->direction_y == 0)
 		ray->direction_y = __INT_MAX__;
 	else
-		fabs(1 / ray->direction_y);
+		ray->distance_to_next_y = (1 / ray->direction_y);
 }
 
 void	calculate_step_and_side_dist(t_player *player, t_ray *ray)
@@ -81,26 +80,34 @@ void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *ma
 			player->current_square_y += ray->step_in_y;
 			wall->which_side_hit = NORTH_SOUTH;
 		}
-		if (map[player->current_square_x][player->current_square_y] > 0)
+		if (map->map[player->current_square_x][player->current_square_y] > 0)
 			wall->is_hit = true;
 	}
 }
 
-void	raycasting(t_player *player, t_camera *camera, t_time *time, t_ray *ray)
+void	raycasting(t_cube *cube)
 {
 	int			x_coord;
-	t_wall		wall;
-	t_draw		draw;
 
 	x_coord = 0;
+	cube->player.current_square_x = cube->map.player_x;
+	cube->player.current_square_y = cube->map.player_y;
 	while (x_coord < SCREEN_WIDTH)
 	{
-		instantiate_ray(&camera, &ray, &player, &wall, &x);
-		calculate_length_to_next_x(&ray);
-		calculate_step_and_side_dist(&player, &ray);
-		perform_DDA_algorithm(&ray, &player, &wall, &map);
-		calculate_closest_point_to_wall(&wall, &ray);
-		calculate_height_line(&wall, &draw);
+		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord);
+		printf("salut 1");
+		calculate_length_to_next_x(&cube->ray);
+		printf("salut 2");
+		calculate_step_and_side_dist(&cube->player, &cube->ray);
+		printf("salut 3");
+		perform_DDA_algorithm(&cube->ray, &cube->player, &cube->wall, &cube->map);
+		printf("salut 4");
+		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
+		printf("salut 5");
+		calculate_height_line(&cube->wall, &cube->draw);
+		printf("salut 6");
+		draw_column(&cube->wall, &cube->draw, &cube->mlx, &x_coord);
+		printf("salut 7");
 		++x_coord;
 	}
 }

@@ -1,6 +1,6 @@
 NAME = cub3d
 
-FILES = main raycasting raycasting2
+FILES = main mlx mlx_utils raycasting raycasting2
 
 UTILS_FILES = \
 
@@ -13,11 +13,18 @@ RM = rm -f
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+MLX = libmlx.dylib
 
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
 
-$(NAME): $(OBJS)
-		$(CC) $(SANITIZE) $(CFLAGS) -o $@ $(OBJS)
+LIBS =  -lmlx -Lmlx -framework OpenGL -framework Appkit
+
+$(NAME): $(MLX) $(OBJS)
+		$(CC) $(SANITIZE) $(CFLAGS) $(LIBS) -o $@ $(MLX) $(OBJS) 
+
+$(MLX) :
+		make -C mlx
+		mv ./mlx/$(MLX) .
 
 all:    $(NAME)
 
@@ -26,7 +33,7 @@ clean:
 
 fclean:         clean
 		$(RM) $(NAME) $(MLX)
-		
+		make clean -C mlx
 re: fclean all
 
 .PHONY: all clean fclean re

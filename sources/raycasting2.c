@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/12 17:49:40 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:00:58 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,27 @@ void	calculate_height_line(t_wall *wall, t_draw *draw)
 	if (draw->end_pos >= SCREEN_HEIGHT)
 		draw->end_pos = SCREEN_HEIGHT - 1;
 }
-// void	choose_wall_texture(t_map *map, t_player *player)
-// {
-	
-// }
-
-void	get_time_input(t_time *time)
+void	draw_column(t_wall *wall, t_draw *draw, t_mlx *mlx, int *x)
 {
-	//dont know how to do this yet
+	int	y;
+
+	(void) wall;
+	y = 0;
+	while (y < SCREEN_HEIGHT)
+	{
+		printf("x = %d ||| y = %d\n", *x, y);
+		if (y < draw->start_pos)
+		{
+			my_mlx_put_pixel(mlx->img, *x, y, draw->ceiling);
+		}
+		else if (y > draw->end_pos)
+		{
+			my_mlx_put_pixel(mlx->img, *x, y, draw->floor);
+		}
+		else
+		{
+			my_mlx_put_pixel(mlx->img, *x, y, 0xffffff);
+		}
+		++y;
+	}
 }
