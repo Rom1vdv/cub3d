@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/14 16:01:56 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:24:59 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *ma
 			player->current_square_y += ray->step_in_y;
 			wall->which_side_hit = NORTH_SOUTH;
 		}
-		if (map->map[player->current_square_x][player->current_square_y] > 0)
+		if (map->map[player->current_square_x][player->current_square_y] == 1)
 			wall->is_hit = true;
 	}
 }

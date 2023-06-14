@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:06:07 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/14 15:57:24 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:09:13 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ enum
 	KEY_LEFT = 123,
 };
 
-int		init_mlx(t_mlx *mlx);
-int		run_mlx(t_mlx *mlx);
+int		init_mlx(t_mlx *mlx, t_cube *cube);
+int		run_mlx(t_mlx *mlx, t_cube *cube);
 int		key_pressed(int keycode, t_mlx *mlx);
 int		ft_close(t_mlx *mlx);
 int		ft_released(int keycode, t_mlx *mlx);

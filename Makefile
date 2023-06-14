@@ -15,7 +15,7 @@ CC = gcc
 
 MLX = libmlx.dylib
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx -fsanitize=address -g
 
 LIBS =  -lmlx -Lmlx -framework OpenGL -framework Appkit
 
