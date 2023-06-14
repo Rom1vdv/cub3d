@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
+/*   Updated: 2023/06/14 15:47:44 by romvan-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef RAYCASTING_H
+# define RAYCASTING_H
+# include "structs.h"
+# include <math.h>
+# include <stdbool.h>
+# include "mlx.h"
+# include "mlx_handling.h"
+# include <errno.h>
+# include <stdlib.h>
+# include <stdio.h>
+
+# ifndef SCREEN_WIDTH
+#  define SCREEN_WIDTH 640
+# endif
+# ifndef SCREEN_HEIGHT
+#  define SCREEN_HEIGHT 480
+# endif
+
+# ifndef NORTH_SOUTH
+# define NORTH_SOUTH 1
+# endif
+# ifndef EAST_WEST
+# define EAST_WEST 0
+# endif
+
+# ifndef MOV_SPEED
+# define MOV_SPEED 0.1
+# endif
+# ifndef ROT_SPEED
+# define ROT_SPEED 0.01
+# endif
+
+
+void	raycasting(t_cube *cube);
+void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray);
+void	calculate_height_line(t_wall *wall, t_draw *draw);
+void	draw_column(t_wall *wall, t_draw *draw, t_mlx *mlx, int *x);
+
+
+#endif
