@@ -1,6 +1,6 @@
 NAME = cub3d
 
-FILES = main raycasting
+FILES = main raycasting raycasting2
 
 UTILS_FILES = \
 

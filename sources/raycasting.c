@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rom1 <rom1@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/12 14:49:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/14 02:09:16 by rom1             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	calculate_step_and_side_dist(t_player *player, t_ray *ray)
 }
 void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *map)
 {
-	wall->is_hit = 0;
+	wall->is_hit = false;
 	while (wall->is_hit == false)
 	{
 		if (ray->move_to_next_x < ray->move_to_next_y)
@@ -95,14 +95,12 @@ void	raycasting(t_player *player, t_camera *camera, t_time *time, t_ray *ray)
 	x_coord = 0;
 	while (x_coord < SCREEN_WIDTH)
 	{
-		// calculate_stuff = instantiate_ray
-		// calculate_steps = calculate_length_to_next_x
-		// calculate_step_and_side_dist
-		// perform_DDA_algorithm
-		//calculate_distance_projected
-		// calculate height of line
-		// calculate pixel to fill
-		// calculatestuffs
+		instantiate_ray(&camera, &ray, &player, &wall, &x);
+		calculate_length_to_next_x(&ray);
+		calculate_step_and_side_dist(&player, &ray);
+		perform_DDA_algorithm(&ray, &player, &wall, &map);
+		calculate_closest_point_to_wall(&wall, &ray);
+		calculate_height_line(&wall, &draw);
 		++x_coord;
 	}
 }

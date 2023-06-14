@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rom1 <rom1@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/12 17:19:45 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/14 02:12:35 by rom1             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define EAST_WEST 0
 # endif
 
+# ifndef MOV_SPEED
+# define MOV_SPEED 0.1
+# endif
+# ifndef ROT_SPEED
+# define ROT_SPEED 0.01
+# endif
 
 typedef struct s_player
 {
@@ -82,6 +88,9 @@ typedef struct s_draw
 	int	start_pos;
 	int	end_pos;
 }	t_draw;
+
+void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray);
+void	calculate_height_line(t_wall *wall, t_draw *draw);
 
 
 #endif
