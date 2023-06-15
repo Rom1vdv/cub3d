@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 10:33:59 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 16:46:51 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:07:33 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
-int	check_map(t_cub *cub)
+int	check_map(t_cube *cub)
 {
 	int	i;
 	int	j;

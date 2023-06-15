@@ -6,11 +6,11 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/14 16:00:58 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:05:23 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "cub3d.h"
 
 void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray)
 {

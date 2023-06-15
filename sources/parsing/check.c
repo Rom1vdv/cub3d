@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 16:41:07 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:07:42 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "cub3d.h"
 
 char	*check_texture(char *path)
 {
@@ -23,7 +23,7 @@ char	*check_texture(char *path)
 	return (path);
 }
 
-void	set_color(t_cub *cub, char *line, int type)
+void	set_color(t_cube *cub, char *line, int type)
 {
 	char	**rgb;
 	int		i;

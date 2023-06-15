@@ -6,11 +6,11 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/14 16:40:30 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:16:53 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "include cub3d.h"
 
 void	init_struc(char *av)
 {
@@ -43,20 +43,14 @@ void	init_struc(char *av)
 	check_file(av, &cub);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    //t_mlx  mlx;
-
-	if (ac != 2)
-        error("Wrong number of arguments\n", 0, 0);
-    if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4) != 0)
-    {
-        error("Wrong file extension\n", 0, 0);
-    }
-    init_struc(av[1]);
-	printf("init of mlx will be called");
-    // if (!init_mlx(&mlx))
-    //     error("Error while initializing mlx\n", 0, 0);
-    // run_mlx(&mlx);
+	(void) ac;
+	(void) av;
+	t_cube	cube;
+	
+	init_mlx(&cube.mlx, &cube);
+	printf("salut");
+	raycasting(&cube);
 	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/14 15:44:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:04:18 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include "raycasting.h"
+#include "cub3d.h"
 
 typedef struct s_mlx
 {
@@ -43,15 +43,6 @@ typedef struct s_camera
 	double	plane_y; // planeY
 	double	current_x; //cameraX
 }	t_camera;
-
-// typedef struct s_time
-// {
-// 	double	current_time; //time
-// 	double	previous_time; //oldTime
-// 	double	frame_time; //frametime
-// 	double	movement_speed; //movespeed
-// 	double	rotation_speed; //rotspeed
-// }	t_time;
 
 typedef struct s_ray
 {

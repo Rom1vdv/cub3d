@@ -6,11 +6,11 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/14 16:09:28 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:04:57 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "cub3d.h"
 
 void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color)
 {

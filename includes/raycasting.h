@@ -6,20 +6,14 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/14 15:47:44 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:03:39 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYCASTING_H
 # define RAYCASTING_H
-# include "structs.h"
-# include <math.h>
-# include <stdbool.h>
-# include "mlx.h"
-# include "mlx_handling.h"
-# include <errno.h>
-# include <stdlib.h>
-# include <stdio.h>
+
+#include "cub3d.h"
 
 # ifndef SCREEN_WIDTH
 #  define SCREEN_WIDTH 640

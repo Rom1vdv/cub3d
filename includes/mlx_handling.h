@@ -6,30 +6,13 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:06:07 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/14 16:09:13 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:27:02 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_INIT_H
 # define MLX_INIT_H
-# include "raycasting.h"
-
-enum {
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_DESTROY = 17
-};
-
-enum
-{
-	KEY_A = 0,
-	KEY_D = 2,
-	KEY_S = 1,
-	KEY_W = 13,
-	KEY_ESC = 53,
-	KEY_RIGHT = 124,
-	KEY_LEFT = 123,
-};
+# include "cub3d.h"
 
 int		init_mlx(t_mlx *mlx, t_cube *cube);
 int		run_mlx(t_mlx *mlx, t_cube *cube);

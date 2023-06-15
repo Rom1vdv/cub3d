@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init.h                                         :+:      :+:    :+:   */
+/*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 14:06:07 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/02 15:41:28 by aburnott         ###   ########.fr       */
+/*   Created: 2023/06/15 13:19:17 by romvan-d          #+#    #+#             */
+/*   Updated: 2023/06/15 13:19:56 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_INIT_H
-# define MLX_INIT_H
+#ifndef DEFINES_H
+# define DEFINES_H
 
-# ifndef WIDTH
-#  define WIDTH 640
+# ifndef SCREEN_WIDTH
+#  define SCREEN_WIDTH 640
 # endif
-# ifndef HEIGHT
-#  define HEIGHT 480
+# ifndef SCREEN_HEIGHT
+#  define SCREEN_HEIGHT 480
 # endif
 
-typedef struct s_mlx
-{
-	void	*init;
-	void	*win;
-	void	*img;
-	char	*addr;
-}	t_mlx;
+# ifndef NORTH_SOUTH
+# define NORTH_SOUTH 1
+# endif
+# ifndef EAST_WEST
+# define EAST_WEST 0
+# endif
+
+# ifndef MOV_SPEED
+# define MOV_SPEED 0.1
+# endif
+# ifndef ROT_SPEED
+# define ROT_SPEED 0.01
+# endif
 
 enum {
 	ON_KEYDOWN = 2,
@@ -44,11 +50,5 @@ enum
 	KEY_RIGHT = 124,
 	KEY_LEFT = 123,
 };
-
-int		init_mlx(t_mlx *mlx);
-int		run_mlx(t_mlx *mlx);
-int		key_pressed(int keycode, t_mlx *mlx);
-int		ft_close(t_mlx *mlx);
-int		ft_released(int keycode, t_mlx *mlx);
 
 #endif
