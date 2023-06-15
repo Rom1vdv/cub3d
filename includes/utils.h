@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:59:59 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/05 23:31:08 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:26:10 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
+
+# include "cub3d.h"
 
 void	ft_putstr(char *str, int fd);
 char	*ft_strdup(char *s, int start, int end);

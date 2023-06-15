@@ -1,5 +1,6 @@
 .vscode
 .DS_Store
+mlx
 mlx_linux
 *.o
 map.cub

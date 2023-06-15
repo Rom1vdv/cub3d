@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 16:47:57 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:07:48 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 char	*read_current_line(int fd)
 {
@@ -22,7 +22,7 @@ char	*read_current_line(int fd)
 	return (line);
 }
 
-int	store_map(char *file, t_cub *cub)
+int	store_map(char *file, t_cube *cub)
 {
 	int		fd;
 	int		i;
@@ -70,7 +70,7 @@ int	store_map(char *file, t_cub *cub)
 	return (0);
 }
 
-int	get_map_size(char *line, t_cub *cub)
+int	get_map_size(char *line, t_cube *cub)
 {
 	int	i;
 

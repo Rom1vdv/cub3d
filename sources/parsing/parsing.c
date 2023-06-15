@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 16:44:43 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:14:36 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "cub3d.h"
 
-int	get_color(char *line, int type, t_cub *cub)
+int	get_color(char *line, int type, t_cube *cub)
 {
 	if (type == 1)
 		set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 2);
@@ -21,7 +21,7 @@ int	get_color(char *line, int type, t_cub *cub)
 	return (0);
 }
 
-int	get_texture(char *line, int type, t_cub *cub)
+int	get_texture(char *line, int type, t_cube *cub)
 {
 	if (type == 1)
 	{
@@ -54,7 +54,7 @@ int	get_texture(char *line, int type, t_cub *cub)
 	return (0);
 }
 
-void	catch_textures(char *line, t_cub *cub, int line_count)
+void	catch_textures(char *line, t_cube *cub, int line_count)
 {
 	int		res;
 	int		i;
@@ -92,7 +92,7 @@ void	catch_textures(char *line, t_cub *cub, int line_count)
 	}
 }
 
-int	check_file(char *file, t_cub *cub)
+int	check_file(char *file, t_cube *cub)
 {
 	int		fd;
 	int		line_count;

@@ -1,17 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/18 20:07:41 by aburnott          #+#    #+#              #
-#    Updated: 2023/06/07 16:08:03 by aburnott         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = cub3D
+
 SRCS_DIR = sources
+
 SRCS = main.c \
 		error/error_handler.c \
 		gnl/get_next_line.c \
@@ -23,13 +13,18 @@ SRCS = main.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/ft_split.c \
-		#init_mlx/init_mlx.c \
-		init_mlx/mlx_utils.c
+		init_mlx/mlx_utils.c \
+		init_mlx/mlx.c\
+		raycasting/raycasting.c\
+		raycasting/raycasting2.c 
+
 OBJS_DIR = objs
+
+MLX = libmlx.dylib
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
-#SFLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
+SFLAGS = -g3 -fsanitize=address
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
@@ -48,9 +43,13 @@ CYAN = \033[36m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(MLX) $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
 	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
+
+$(MLX) : 
+		make -C mlx
+		mv ./mlx/$(MLX) .
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
@@ -63,7 +62,8 @@ clean:
 
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(MLX)
+	make clean -C mlx
 
 re: fclean all
 
