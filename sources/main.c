@@ -6,17 +6,16 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 13:16:53 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:54:29 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include cub3d.h"
+#include "cub3d.h"
 
 void	init_struc(char *av)
 {
-    t_cub	cub;
+    t_cube	cub;
 
-	cub.a_error = 0;
 	cub.textures.no = 0;
 	cub.textures.so = 0;
 	cub.textures.we = 0;

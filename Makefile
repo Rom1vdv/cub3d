@@ -1,28 +1,38 @@
-NAME = cub3d
+NAME = cub3D
 
-FILES = main init_mlx/mlx init_mlx/mlx_utils raycasting/raycasting raycasting/raycasting2 \
-		parsing/check_map parsing/check parsing/get_map
+SRCS_DIR = sources
 
-UTILS_FILES = ft_split utils utils2
-
-SRCS = $(addprefix utils/, $(addsuffix .c, $(UTILS_FILES))) \
-	$(addprefix sources/, $(addsuffix .c, $(FILES))) \
+SRCS = main.c \
+		error/error_handler.c \
+		gnl/get_next_line.c \
+		gnl/get_next_line_utils.c \
+		parsing/check_map.c \
+		parsing/get_map.c \
+		parsing/parsing.c \
+		parsing/check.c \
+		utils/utils.c \
+		utils/utils2.c \
+		utils/ft_split.c \
+		init_mlx/mlx_utils.c \
+		init_mlx/mlx.c\
+		raycasting/raycasting.c\
+		raycasting/raycasting2.c 
 
 OBJS_DIR = objs
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
-
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
+#SFLAGS = -g3 -fsanitize=address
+MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
-CC = gcc
+# Special condition to compile mlx on Linux DO NOT FORGET TO REMOVE BEFOR FINAL PUSH
+ifeq ($(shell uname), Linux)
+	MLXFLAGS = -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+endif
 
-MLX = libmlx.dylib
-
-CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx -I ./sources/gnl -fsanitize=address -g
-
-LIBS =  -lmlx -Lmlx -framework OpenGL -framework Appkit
-
-# Colors #
+# Colors
 RESET = \033[0m
 BOLD = \033[1m
 DIM = \033[2m
@@ -30,32 +40,25 @@ GREEN = \033[32m
 YELLOW = \033[33m
 CYAN = \033[36m
 
-# Rules #
+all: $(NAME)
 
-
-$(NAME): $(MLX) $(OBJS)
-		@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-		$(CC) $(SANITIZE) $(CFLAGS) $(LIBS) -o $@ $(MLX) $(OBJS) 
+$(NAME): $(OBJS)
+	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
+	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@echo "$(BOLD)Compiling $(YELLOW)$<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(MLX) :
-		make -C mlx
-		mv ./mlx/$(MLX) .
-
-all:    $(NAME)
-
 clean:
-		@echo "$(BOLD)Cleaning objects$(RESET)"
-		$(RM) $(OBJS)
+	@echo "$(BOLD)Cleaning objects$(RESET)"
+	@$(RM) -r $(OBJS_DIR)
 
-fclean:         clean
-		@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
-		$(RM) $(NAME) $(MLX)
-		make clean -C mlx
+fclean: clean
+	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
+	@$(RM) $(NAME)
+
 re: fclean all
 
 .PHONY: all clean fclean re

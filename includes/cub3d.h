@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:10:16 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:54:59 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@
 
 # include "utils.h"
 
+/* Raycastign */
+
+# include "raycasting.h"
+
 /* 42 Libraries */
 
-# include "../mlx/mlx.h"
 # include "../sources/gnl/get_next_line.h"
 
 #endif
