@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:54:29 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:14:06 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	init_struc(char *av)
 
 int	main(int ac, char **av)
 {
-	(void) ac;
-	(void) av;
+	(void)ac;
 	t_cube	cube;
 	
+	init_struc(av[1]);
 	init_mlx(&cube.mlx, &cube);
 	printf("salut");
 	raycasting(&cube);
