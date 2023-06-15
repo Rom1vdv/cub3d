@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 22:52:23 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/07 16:48:26 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:22:49 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-
+#include "cub3d.h"
 int	ft_count(char const *s, char c)
 {
 	int	i;
