@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/16 13:31:50 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:20:29 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	raycasting(t_cube *cube)
 	int			x_coord;
 
 	x_coord = 0;
-    printf("Player: x: %d y: %d\n", cube->map.player_x, cube->map.player_y);
 	cube->player.current_square_x = cube->map.player_x;
 	cube->player.current_square_y = cube->map.player_y;
 	while (x_coord < SCREEN_WIDTH)
