@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/16 15:43:37 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:33:16 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	init_struc(char *av)
 	cub.xpm_file.height = 0;
 	cub.player.starting_pos_x = 0;
 	cub.player.starting_pos_y = 0;
-	cub.player.director_vector_x = 0;
+	cub.player.director_vector_x = -1;
 	cub.player.director_vector_y = 0;
 	cub.player.current_square_x = 0;
 	cub.player.current_square_y = 0;
 	cub.camera.plane_x = 0;
-	cub.camera.plane_y = 0;
+	cub.camera.plane_y = 0.66;
 	cub.camera.current_x = 0;
 	cub.ray.direction_x = 0;
 	cub.ray.direction_y = 0;
