@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 16:14:06 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 13:44:18 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,13 @@ void	init_struc(char *av)
 	cub.xpm_file.width = 0;
 	cub.xpm_file.height = 0;
 	check_file(av, &cub);
+    init_mlx(&cub.mlx, &cub);
 }
 
 int	main(int ac, char **av)
 {
 	(void)ac;
-	t_cube	cube;
 	
 	init_struc(av[1]);
-	init_mlx(&cube.mlx, &cube);
-	printf("salut");
-	raycasting(&cube);
 	return (0);
 }
