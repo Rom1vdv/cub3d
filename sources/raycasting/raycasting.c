@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/15 16:20:29 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:08:11 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,19 +95,12 @@ void	raycasting(t_cube *cube)
 	while (x_coord < SCREEN_WIDTH)
 	{
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord);
-		printf("salut 1");
 		calculate_length_to_next_x(&cube->ray);
-		printf("salut 2");
 		calculate_step_and_side_dist(&cube->player, &cube->ray);
-		printf("salut 3");
 		perform_DDA_algorithm(&cube->ray, &cube->player, &cube->wall, &cube->map);
-		printf("salut 4");
 		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
-		printf("salut 5");
 		calculate_height_line(&cube->wall, &cube->draw);
-		printf("salut 6");
 		draw_column(&cube->wall, &cube->draw, &cube->mlx, &x_coord);
-		printf("salut 7");
 		++x_coord;
 	}
 }

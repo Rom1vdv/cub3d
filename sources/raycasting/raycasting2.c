@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/15 15:05:23 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:04:46 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,17 @@ void	draw_column(t_wall *wall, t_draw *draw, t_mlx *mlx, int *x)
 	y = 0;
 	while (y < SCREEN_HEIGHT)
 	{
-		printf("x = %d ||| y = %d\n", *x, y);
 		if (y < draw->start_pos)
 		{
-			my_mlx_put_pixel(mlx->img, *x, y, draw->ceiling);
+			my_mlx_put_pixel(mlx, *x, y, draw->ceiling);
 		}
 		else if (y > draw->end_pos)
 		{
-			my_mlx_put_pixel(mlx->img, *x, y, draw->floor);
+			my_mlx_put_pixel(mlx, *x, y, draw->floor);
 		}
 		else
 		{
-			my_mlx_put_pixel(mlx->img, *x, y, 0xffffff);
+			my_mlx_put_pixel(mlx, *x, y, 0xffffff);
 		}
 		++y;
 	}
