@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/16 16:08:47 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:15:18 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 void	raycasting(t_cube *cube);
 void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray);
-void	calculate_height_line(t_wall *wall, t_draw *draw, t_map *map);
+void	calculate_height_line(t_wall *wall, t_draw *draw);
 void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw);
 
 
