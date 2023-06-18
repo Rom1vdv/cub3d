@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/16 16:33:16 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:47:30 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ void	init_struc(char *av)
 	cub.player.starting_pos_x = 0;
 	cub.player.starting_pos_y = 0;
 	cub.player.director_vector_x = -1;
+	cub.player.director_vector_x = -1;
 	cub.player.director_vector_y = 0;
 	cub.player.current_square_x = 0;
 	cub.player.current_square_y = 0;
 	cub.camera.plane_x = 0;
+	cub.camera.plane_y = 0.66;
 	cub.camera.plane_y = 0.66;
 	cub.camera.current_x = 0;
 	cub.ray.direction_x = 0;

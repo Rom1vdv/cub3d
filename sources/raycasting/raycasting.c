@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/16 16:48:08 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:47:47 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x, t_map *map)
+void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x)
 {
 	int	x_coord;
 
 	x_coord = *x;
-	camera->current_x = (2 * x_coord /(double)map->x) - 1;
+	camera->current_x = (2 * x_coord / (double)SCREEN_WIDTH) - 1;
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
     printf("IN instantiate: ray->direction_x = %f\n", ray->direction_x);
@@ -110,12 +110,12 @@ void	raycasting(t_cube *cube)
     printf("x: %d, y: %d\n", cube->player.current_square_x, cube->player.current_square_y);
 	while (x_coord < cube->map.x)
 	{
-		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord, &cube->map);
+		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord);
 		calculate_length_to_next_x(&cube->ray);
 		calculate_step_and_side_dist(&cube->player, &cube->ray);
 		perform_DDA_algorithm(&cube->ray, &cube->player, &cube->wall, &cube->map);
 		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
-		calculate_height_line(&cube->wall, &cube->draw, &cube->map);
+		calculate_height_line(&cube->wall, &cube->draw);
 		draw_column(&cube->wall, &cube->map, &cube->mlx, &x_coord, &cube->draw);
 		++x_coord;
 	}
