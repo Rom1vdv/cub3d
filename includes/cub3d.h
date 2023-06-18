@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:54:59 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:42:57 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <string.h>
+# include <stdint.h>
 
 /* Struct and Defines */
 
