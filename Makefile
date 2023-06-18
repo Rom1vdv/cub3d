@@ -22,9 +22,9 @@ OBJS_DIR = objs
 
 MLX = libmlx.dylib
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
-SFLAGS = -g3 -fsanitize=address
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx -g
+SFLAGS = -fsanitize=address -g
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 

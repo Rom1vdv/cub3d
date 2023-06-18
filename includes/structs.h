@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/15 15:04:18 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:08:05 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ typedef struct s_draw
 	int	line_height;
 	int	start_pos;
 	int	end_pos;
-	int	floor;
-	int	ceiling;
 	
 }	t_draw;
 

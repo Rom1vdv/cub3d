@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 16:14:36 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:37:47 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 int	get_color(char *line, int type, t_cube *cub)
 {
 	if (type == 1)
+    {
 		set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 2);
-	else if (type == 2)
-		set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 1);
-	return (0);
+        printf("Floor color: %d\n", cub->map.floor);
+    }
+    else if (type == 2)
+	{
+        set_color(cub, ft_strdup(line, 2, ft_strlen(line)), 1);
+        printf("Ceiling color: %d\n", cub->map.ceiling);
+    }
+    return (0);
 }
 
 int	get_texture(char *line, int type, t_cube *cub)
