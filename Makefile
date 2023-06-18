@@ -22,7 +22,7 @@ OBJS_DIR = objs
 
 MLX = libmlx.dylib
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
 SFLAGS = -g3 -fsanitize=address
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
@@ -30,7 +30,7 @@ RM = rm -f
 
 # Special condition to compile mlx on Linux DO NOT FORGET TO REMOVE BEFOR FINAL PUSH
 ifeq ($(shell uname), Linux)
-	MLXFLAGS = -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+	MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 endif
 
 # Colors
@@ -45,11 +45,10 @@ all: $(NAME)
 
 $(NAME): $(MLX) $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SFLAGS) $(OBJS) $(MLXFLAGS) -o $(NAME)
 
 $(MLX) : 
-		make -C mlx
-		mv ./mlx/$(MLX) .
+		make -C mlx_linux
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
@@ -63,7 +62,7 @@ clean:
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
 	@$(RM) $(NAME) $(MLX)
-	make clean -C mlx
+	make clean -C mlx_linux
 
 re: fclean all
 

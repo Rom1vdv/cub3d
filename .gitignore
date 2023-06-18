@@ -4,3 +4,4 @@ mlx
 mlx_linux
 *.o
 map.cub
+Makefile
