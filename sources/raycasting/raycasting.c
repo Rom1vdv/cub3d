@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 14:16:57 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:56:47 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x, t_m
 void	calculate_length_to_next_x(t_ray *ray)
 {
 	if (ray->direction_x == 0)
-		ray->distance_to_next_x = INT32_MAX;
+		ray->distance_to_next_x = 1e30;
 	else
 		ray->distance_to_next_x = fabs(1 / ray->direction_x);
 	if (ray->direction_y == 0)
-		ray->distance_to_next_y = INT32_MAX;
+		ray->distance_to_next_y = 1e30;
 	else
 		ray->distance_to_next_y = fabs(1 / ray->direction_y);
 }
@@ -93,6 +93,8 @@ void	raycasting(t_cube *cube)
 	int			x_coord;
 
 	x_coord = 0;
+	printf("%d", cube->map.player_x);
+	printf("%d", cube->map.player_y);
 	while (x_coord < SCREEN_WIDTH)
 	{
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord, &cube->map);
