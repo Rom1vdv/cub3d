@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/19 14:44:17 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:11:19 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_struc(char *av)
 	cub.xpm_file.wall_ea = 0;
 	cub.xpm_file.width = 0;
 	cub.xpm_file.height = 0;
-	cub.player.director_vector_x = -1;
+	cub.player.director_vector_x = 1;
 	cub.player.director_vector_y = 0;
 	cub.player.current_square_x = 0;
 	cub.player.current_square_y = 0;

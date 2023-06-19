@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 14:56:47 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:08:36 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	calculate_step_and_side_dist(t_player *player, t_ray *ray, t_map *map)
 }
 void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *map)
 {
+	wall->is_hit = false;
 	while (wall->is_hit == false)
 	{
 		if (ray->move_to_next_x < ray->move_to_next_y)
@@ -83,6 +84,7 @@ void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *ma
 		}
 		if (map->map[player->current_square_x][player->current_square_y] == '1')
 		{
+			printf("ding");
 			wall->is_hit = true;
 		}
 	}
@@ -93,10 +95,9 @@ void	raycasting(t_cube *cube)
 	int			x_coord;
 
 	x_coord = 0;
-	printf("%d", cube->map.player_x);
-	printf("%d", cube->map.player_y);
 	while (x_coord < SCREEN_WIDTH)
 	{
+		printf("x is %d\n", x_coord);
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord, &cube->map);
 		calculate_length_to_next_x(&cube->ray);
 		calculate_step_and_side_dist(&cube->player, &cube->ray, &cube->map);
