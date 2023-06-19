@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 16:19:38 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:14:12 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 		}
 		else
 		{
+			if (wall->which_side_hit == NORTH_SOUTH)
+			{
+				my_mlx_put_pixel(mlx, *x, y, 0x00FF00);
+			}
 			my_mlx_put_pixel(mlx, *x, y, 0x0000FF);
 		}
 		++y;

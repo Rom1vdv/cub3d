@@ -26,7 +26,7 @@ MLX = libmlx.dylib
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx -g
-SFLAGS = -g
+SFLAGS = -fsanitize=address -g
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
