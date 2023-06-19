@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/18 21:47:30 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:05:00 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ void	init_struc(char *av)
 	cub.xpm_file.wall_ea = 0;
 	cub.xpm_file.width = 0;
 	cub.xpm_file.height = 0;
-	cub.player.starting_pos_x = 0;
-	cub.player.starting_pos_y = 0;
-	cub.player.director_vector_x = -1;
-	cub.player.director_vector_x = -1;
+	cub.player.director_vector_x = 1;
 	cub.player.director_vector_y = 0;
 	cub.player.current_square_x = 0;
 	cub.player.current_square_y = 0;

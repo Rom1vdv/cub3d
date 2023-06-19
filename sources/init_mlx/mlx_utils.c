@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/15 15:05:02 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:55:21 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	ft_close(t_mlx *mlx)
 	return (0);
 }
 
-int	key_pressed(int keycode, t_mlx *mlx)
+int	key_pressed(int keycode, t_mlx *mlx, t_cube *cube)
 {
 	if (keycode == KEY_ESC)
 		ft_close(mlx);
 	else if (keycode == KEY_W)
-		printf("W PRESSED\n");
+		movements(cube);
 	else if (keycode == KEY_S)
 		printf("S PRESSED\n");
 	else if (keycode == KEY_A)

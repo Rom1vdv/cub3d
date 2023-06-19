@@ -16,7 +16,9 @@ SRCS = main.c \
 		init_mlx/mlx_utils.c \
 		init_mlx/mlx.c\
 		raycasting/raycasting.c\
-		raycasting/raycasting2.c 
+		raycasting/raycasting2.c\
+		raycasting/render.c\
+		raycasting/controls.c
 
 OBJS_DIR = objs
 

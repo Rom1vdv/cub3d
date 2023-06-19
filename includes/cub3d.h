@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/18 21:42:57 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:04:28 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 /* Raycastign */
 
 # include "raycasting.h"
+# include "controls.h"
 
 /* 42 Libraries */
 

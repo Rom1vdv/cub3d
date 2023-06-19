@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/18 21:48:17 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:05:57 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 		}
 		else
 		{
-			my_mlx_put_pixel(mlx, *x, y, 0x000000);
+			if (wall->which_side_hit == NORTH_SOUTH)
+			{
+				my_mlx_put_pixel(mlx, *x, y, 0x00FF00);
+			}
+			my_mlx_put_pixel(mlx, *x, y, 0x0000FF);
 		}
 		++y;
 	}
