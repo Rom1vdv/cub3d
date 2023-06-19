@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controls.c                                         :+:      :+:    :+:   */
+/*   controls.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 15:53:26 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 16:47:23 by romvan-d         ###   ########.fr       */
+/*   Created: 2023/06/19 16:46:27 by romvan-d          #+#    #+#             */
+/*   Updated: 2023/06/19 16:46:52 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CONTROLS_H
+# define CONTROLS_H
 
-void	render(t_cube *cube)
-{
-	movements(cube);
-}
+# include "cub3d.h"
+
+void	movements(t_cube *cube);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 15:05:12 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:19:38 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 		}
 		else
 		{
-			my_mlx_put_pixel(mlx, *x, y, 0x000000);
+			my_mlx_put_pixel(mlx, *x, y, 0x0000FF);
 		}
 		++y;
 	}

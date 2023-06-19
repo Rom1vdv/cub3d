@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:19:17 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/15 13:19:56 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:18:50 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@
 # endif
 # ifndef ROT_SPEED
 # define ROT_SPEED 0.01
+# endif
+
+# ifndef TEXTURE_WIDTH
+# define TEXTURE_WIDTH 64
+# endif
+# ifndef TEXTURE_HEIGHT
+# define TEXTURE_HEIGHT 64
 # endif
 
 enum {
