@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 18:05:32 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:04:15 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x, t_m
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
     printf("IN instantiate: ray->direction_x = %f\n", ray->direction_x);
+	printf("IN instantiate: player->director_vector_x = %f\n", player->director_vector_x);
 	ray->direction_y = player->director_vector_y + camera->plane_y
 		* camera->current_x;
 	player->current_square_x = map->player_x;
 	player->current_square_y = map->player_y;
+	printf("current_square_x = %d\n", player->current_square_x);
+	printf("current_square_y = %d\n", player->current_square_y);
 }
 
 void	calculate_length_to_next_x(t_ray *ray)
@@ -32,9 +35,10 @@ void	calculate_length_to_next_x(t_ray *ray)
 	if (ray->direction_x == 0)
 		ray->distance_to_next_x = 1e30;
 	else
+	{
 		ray->distance_to_next_x = fabs(1 / ray->direction_x);
-        printf("distance_to_next_x = %f\n", ray->distance_to_next_x);
-    }
+        //printf("distance_to_next_x = %f\n", ray->distance_to_next_x);
+	}
 	if (ray->direction_y == 0)
 		ray->distance_to_next_y = 1e30;
 	else

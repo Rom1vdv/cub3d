@@ -50,7 +50,7 @@ $(NAME): $(MLX) $(OBJS)
 	@$(CC) $(CFLAGS) $(SFLAGS) $(OBJS) $(MLXFLAGS) -o $(NAME)
 
 $(MLX) : 
-		make -C mlx_linux
+		make -C mlx
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
@@ -64,7 +64,7 @@ clean:
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
 	@$(RM) $(NAME) $(MLX)
-	make clean -C mlx_linux
+	make clean -C mlx
 
 re: fclean all
 

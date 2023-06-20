@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/16 14:37:47 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/20 09:55:18 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,7 @@ int	check_file(char *file, t_cube *cub)
 	printf("Map size: %d x %d\n", cub->map.x, cub->map.y);
 	if (!check_map(cub) || !cub->map.player_found)
 		error("Something went wrong with the map\n", 0, 0);
+	cub->player.starting_pos_x = cub->map.player_x;
+	cub->player.starting_pos_y = cub->map.player_y;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/19 18:05:09 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:06:46 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	run_mlx(t_mlx *mlx, t_cube *cube)
 	mlx_hook(mlx->win, ON_KEYUP, 0, ft_released, mlx);
 	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, mlx);
 	raycasting(cube);
-	render(cube);
+	//render(cube);
 	mlx_put_image_to_window(mlx, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
 	return (1);
