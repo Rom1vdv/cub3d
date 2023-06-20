@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/19 17:07:59 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:31:54 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color)
 			* (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+
 int	run_mlx(t_mlx *mlx, t_cube *cube)
 {
 	mlx_hook(mlx->win, ON_DESTROY, 0, ft_close, mlx);
 	mlx_hook(mlx->win, ON_KEYUP, 0, ft_released, mlx);
 	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, mlx);
-	raycasting(cube);
-	render(cube);
+	cube_loop(cube);
 	mlx_put_image_to_window(mlx, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
 	return (1);
