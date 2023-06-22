@@ -13,11 +13,12 @@ SRCS = main.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/ft_split.c \
-		init_mlx/mlx_utils.c \
-		init_mlx/mlx.c\
+		rendering/mlx_utils.c \
+		rendering/mlx.c\
+		rendering/cube_loop.c\
+		rendering/render.c\
 		raycasting/raycasting.c\
 		raycasting/raycasting2.c\
-		raycasting/render.c\
 		raycasting/controls.c
 
 OBJS_DIR = objs

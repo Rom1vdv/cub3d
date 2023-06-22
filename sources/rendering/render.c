@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_handling.h                                     :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 14:06:07 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/19 17:02:43 by romvan-d         ###   ########.fr       */
+/*   Created: 2023/06/20 13:54:56 by romvan-d          #+#    #+#             */
+/*   Updated: 2023/06/20 13:58:43 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_INIT_H
-# define MLX_INIT_H
-# include "cub3d.h"
+#include "cub3d.h"
 
-int		init_mlx(t_mlx *mlx, t_cube *cube);
-int		run_mlx(t_mlx *mlx, t_cube *cube);
-int		key_pressed(int keycode, t_mlx *mlx, t_cube *cube);
-int		ft_close(t_mlx *mlx);
-int		ft_released(int keycode, t_mlx *mlx);
-void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color);
-void	render(t_cube *cube);
-#endif
+void	render(t_cube *cube)
+{
+	raycasting(cube);
+	mlx_put_image_to_window(&cube->mlx, cube->mlx.win, cube->mlx.img, 0, 0);
+}
