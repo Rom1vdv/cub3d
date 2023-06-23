@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/22 16:34:07 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:26:19 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,20 @@ int	run_mlx(t_mlx *mlx, t_cube *cube)
 	mlx_put_image_to_window(mlx, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
 	return (1);
+}
+
+int	init_mlx(t_mlx *mlx, t_cube *cube)
+{	
+	mlx->init = mlx_init();
+	if (!mlx->init)
+		return (0);
+	mlx->win = mlx_new_window(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
+	if (!mlx->win)
+		return (0);
+	mlx->img = mlx_new_image(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT);
+	if (!mlx->img)
+		return (0);
+	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel, &mlx->line_length,
+			&mlx->endian);
+	return (run_mlx(mlx, cube));
 }

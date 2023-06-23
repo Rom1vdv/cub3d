@@ -3,55 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 18:05:57 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:10:14 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray)
+void	calculate_closest_point_to_wall(t_cube *cube)
 {
-	if (wall->which_side_hit == EAST_WEST)
-		wall->shortest_dist_to_wall = (ray->move_to_next_x - ray->direction_x);
+	if (cube->wall.which_side_hit == EAST_WEST)
+		cube->wall.shortest_dist_to_wall = (cube->ray.move_to_next_x - cube->ray.direction_x);
 	else
-		wall->shortest_dist_to_wall = (ray->move_to_next_y - ray->direction_y);
+		cube->wall.shortest_dist_to_wall = (cube->ray.move_to_next_y - cube->ray.direction_y);
 }
-void	calculate_height_line(t_wall *wall, t_draw *draw)
+void	calculate_height_line(t_cube *cube)
 {
-	draw->line_height = (int)(SCREEN_HEIGHT / wall->shortest_dist_to_wall);
-	draw->start_pos = - draw->line_height / 2 + SCREEN_HEIGHT / 2;
-	if (draw->start_pos < 0)
-		draw->start_pos = 0;
-	draw->end_pos = draw->line_height / 2 + SCREEN_HEIGHT / 2;
-	if (draw->end_pos >= SCREEN_HEIGHT)
-		draw->end_pos = SCREEN_HEIGHT - 1;
+	cube->draw.line_height = (int)(SCREEN_HEIGHT / cube->wall.shortest_dist_to_wall);
+	cube->draw.start_pos = - cube->draw.line_height / 2 + SCREEN_HEIGHT / 2;
+	if (cube->draw.start_pos < 0)
+		cube->draw.start_pos = 0;
+	cube->draw.end_pos = cube->draw.line_height / 2 + SCREEN_HEIGHT / 2;
+	if (cube->draw.end_pos >= SCREEN_HEIGHT)
+		cube->draw.end_pos = SCREEN_HEIGHT - 1;
 }
-void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
+void	draw_column(t_cube *cube, int *x)
 {
 	int	y;
 
-	(void) wall;
+	//(void) wall;
 	y = 0;
 	while (y < SCREEN_HEIGHT)
 	{
-		if (y < draw->start_pos)
+		if (y < cube->draw.start_pos)
 		{
-			my_mlx_put_pixel(mlx, *x, y, map->ceiling);
+			my_mlx_put_pixel(&cube->mlx, *x, y, cube->map.ceiling);
 		}
-		else if (y > draw->end_pos)
+		else if (y > cube->draw.end_pos)
 		{
-			my_mlx_put_pixel(mlx, *x, y, map->floor);
+			my_mlx_put_pixel(&cube->mlx, *x, y, cube->map.floor);
 		}
 		else
 		{
-			if (wall->which_side_hit == NORTH_SOUTH)
+			if (cube->wall.which_side_hit == NORTH_SOUTH)
 			{
-				my_mlx_put_pixel(mlx, *x, y, 0x00FF00);
+				my_mlx_put_pixel(&cube->mlx, *x, y, 0x00FF00);
 			}
-			my_mlx_put_pixel(mlx, *x, y, 0x0000FF);
+			my_mlx_put_pixel(&cube->mlx, *x, y, 0x0000FF);
 		}
 		++y;
 	}

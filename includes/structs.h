@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/20 09:50:08 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:31:06 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_ray
 	double	move_to_next_y; //sideDistY
 	double	distance_to_next_x; //deltadistX
 	double	distance_to_next_y; //deltadistY
-	int		step_in_x;//stepX
-	int		step_in_y;//stepY
+	double		step_in_x;//stepX
+	double		step_in_y;//stepY
 }	t_ray;
 
 typedef struct s_wall
@@ -79,8 +79,8 @@ typedef struct s_map
 	int				x;
 	int				y;
 	int				player_found;
-	int				player_x;
-	int				player_y;
+	double				player_x;
+	double				player_y;
 	int				map_error;
 	int				player_patch;
 	unsigned int	floor;

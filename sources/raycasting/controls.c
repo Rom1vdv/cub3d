@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:26:09 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/22 16:33:59 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:51:47 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	movements(t_cube *cube)
 	int	new_pos_y = 0;
 	int	new_pos_x = 0;
 
-	new_pos_x = cube->map.player_x + cube->player.director_vector_x * MOV_SPEED;
-	new_pos_y = cube->map.player_y + cube->player.director_vector_y * MOV_SPEED;
-	printf("pos x : %d\n", cube->map.player_x);
-	printf("pos y : %d\n", cube->map.player_y);
+	new_pos_x = (int)((double)(cube->map.player_x + 1.0 /* cube->player.director_vector_x */ * MOV_SPEED));
+	new_pos_y = (int)((double)(cube->map.player_y + 0.0 /* cube->player.director_vector_y */ * MOV_SPEED));
+    printf("START VAL: %f\n", cube->player.starting_pos_x);
+	printf("pos x : %f\n", cube->map.player_x);
+	printf("pos y : %f\n", cube->map.player_y);
 	printf("new pos x : %d\n", new_pos_x);
 	printf("mew pos y : %d\n", new_pos_y);
 	printf("dir X : %f\n", cube->player.director_vector_x);

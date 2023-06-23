@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:07:48 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:53:31 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	get_map_size(char *line, t_cube *cub)
 		if (line[i] == 'N' || line[i] == 'S'
 			|| line[i] == 'W' || line[i] == 'E')
 		{
-			cub->map.player_x = cub->map.x;
-			cub->map.player_y = i;
-			cub->map.player_found = 1;
+			cub->map.player_x = (double)cub->map.x + 0.5;
+			cub->map.player_y = (double)i + 0.5;
+            cub->map.player_found = 1;
 		}
 		i++;
 	}
