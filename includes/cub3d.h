@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rom1 <rom1@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/20 14:54:26 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/24 22:39:55 by rom1             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include "defines.h"
 
 /* MlX components */
-# include "mlx.h"
+# include "../mlx_linux/mlx.h"
 # include "rendering.h"
 
 /* Parsing */
