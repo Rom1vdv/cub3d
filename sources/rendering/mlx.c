@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rom1 <rom1@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/20 15:31:54 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:50:03 by rom1             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	run_mlx(t_mlx *mlx, t_cube *cube)
 	mlx_hook(mlx->win, ON_KEYUP, 0, ft_released, mlx);
 	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, mlx);
 	cube_loop(cube);
-	mlx_put_image_to_window(mlx, mlx->win, mlx->img, 0, 0);
+	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
 	return (1);
 }
