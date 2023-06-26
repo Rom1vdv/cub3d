@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 17:14:12 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:03:31 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	calculate_height_line(t_wall *wall, t_draw *draw)
 	if (draw->end_pos >= SCREEN_HEIGHT)
 		draw->end_pos = SCREEN_HEIGHT - 1;
 }
+// void	calculate_textures(t_cube *cube)
+// {
+	
+// }
 void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 {
 	int	y;

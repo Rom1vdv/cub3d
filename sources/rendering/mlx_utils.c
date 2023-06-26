@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/20 15:14:33 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:38:38 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ int	ft_released(int keycode, t_mlx *mlx)
 	return (0);
 }
 
-// int	to_xpm(t_mlx *mlx, t_cub *cub)
-// {
-// 	//NEED TO CHECK MLX RETURN AND VALIDITY
-// 	cub->xpm_file.wall_ea = mlx_xpm_file_to_image(mlx->init, cub->textures.ea,
-// 			&cub->xpm_file.width, &cub->xpm_file.height);
-// 	cub->xpm_file.wall_no = mlx_xpm_file_to_image(mlx->init, cub->textures.no,
-// 			&cub->xpm_file.width, &cub->xpm_file.height);
-// 	cub->xpm_file.wall_so = mlx_xpm_file_to_image(mlx->init, cub->textures.so,
-// 			&cub->xpm_file.width, &cub->xpm_file.height);
-// 	cub->xpm_file.wall_we = mlx_xpm_file_to_image(mlx->init, cub->textures.we,
-// 			&cub->xpm_file.width, &cub->xpm_file.height);
-// 	return (0);
-// }
+int	to_xpm(t_mlx *mlx, t_cube *cube)
+{
+	//NEED TO CHECK MLX RETURN AND VALIDITY
+	cube->xpm_file.wall_ea = mlx_xpm_file_to_image(mlx->init, cube->textures.ea,
+			&cube->xpm_file.width, &cube->xpm_file.height);
+	cube->xpm_file.wall_no = mlx_xpm_file_to_image(mlx->init, cube->textures.no,
+			&cube->xpm_file.width, &cube->xpm_file.height);
+	cube->xpm_file.wall_so = mlx_xpm_file_to_image(mlx->init, cube->textures.so,
+			&cube->xpm_file.width, &cube->xpm_file.height);
+	cube->xpm_file.wall_we = mlx_xpm_file_to_image(mlx->init, cube->textures.we,
+			&cube->xpm_file.width, &cube->xpm_file.height);
+	return (0);
+}
