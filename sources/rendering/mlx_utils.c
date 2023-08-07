@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/26 16:17:19 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:14:04 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,24 @@ int	key_pressed(int keycode, t_cube *cube)
 	if (keycode == KEY_ESC)
 		ft_close(&cube->mlx);
 	else if (keycode == KEY_W)
-		movements(cube);
+		forward_movement(cube);
 	else if (keycode == KEY_S)
-		printf("S PRESSED\n");
+		backward_movement(cube);
 	else if (keycode == KEY_A)
-		printf("A PRESSED\n");
+		left_movement(cube);
 	else if (keycode == KEY_D)
-		printf("D PRESSED\n");
+		right_movement(cube);
 	else if (keycode == KEY_LEFT)
-		printf("LEFT PRESSED\n");
+		rotate_left(cube);
 	else if (keycode == KEY_RIGHT)
-		printf("RIGHT PRESSED\n");
+		rotate_right(cube);
 	return (0);
 }
-
-int	ft_released(int keycode, t_mlx *mlx)
+/* might be useless */
+int	ft_released(int keycode, t_cube *cube)
 {
 	(void) keycode;
-	(void) *mlx;
+	(void) *cube;
 	return (0);
 }
 

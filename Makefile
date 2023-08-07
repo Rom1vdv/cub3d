@@ -19,7 +19,8 @@ SRCS = main.c \
 		rendering/render.c\
 		raycasting/raycasting.c\
 		raycasting/raycasting2.c\
-		raycasting/controls.c
+		raycasting/movements.c\
+		raycasting/rotations.c
 
 OBJS_DIR = objs
 
@@ -66,7 +67,7 @@ clean:
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
 	@$(RM) $(NAME) $(MLX)
-	make clean -C mlx
+	# make clean -C mlx
 
 re: fclean all
 

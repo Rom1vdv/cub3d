@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/26 14:31:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 11:43:05 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ typedef struct s_draw
 typedef struct s_map
 {
 	char			**map;
+	char			player_orientation;
 	int				start_line;
 	int				x;
 	int				y;
 	int				player_found;
-	int				player_x;
-	int				player_y;
+	double			player_x;
+	double			player_y;
 	int				map_error;
 	int				player_patch;
 	unsigned int	floor;
