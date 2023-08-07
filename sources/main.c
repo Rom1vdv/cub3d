@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/07 12:01:03 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:31:12 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_struc(char *av)
 {
-    t_cube	cub;
+	t_cube	cub;
 
 	cub.textures.no = 0;
 	cub.textures.so = 0;
@@ -62,13 +62,12 @@ void	init_struc(char *av)
 	cub.draw.start_pos = 0;
 	cub.draw.line_height = 0;
 	check_file(av, &cub);
-    init_mlx(&cub.mlx, &cub);
+	init_mlx(&cub.mlx, &cub);
 }
 
 int	main(int ac, char **av)
 {
 	(void)ac;
-	
 	init_struc(av[1]);
 	return (0);
 }

@@ -6,13 +6,14 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/07 14:01:18 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:36:24 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x, t_map *map)
+void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
+	int *x, t_map *map)
 {
 	camera->current_x = 2 * (*x) / SCREEN_WIDTH - 1;
 	// printf("x coord is : %f\n", map->player_x);
@@ -65,7 +66,9 @@ void	calculate_step_and_side_dist(t_player *player, t_ray *ray, t_map *map)
 				- map->player_y) * ray->distance_to_next_y;
 	}
 }
-void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *map)
+
+void	perform_dda_algorithm(t_ray *ray, t_player *player,
+	t_wall *wall, t_map *map)
 {
 	wall->is_hit = false;
 	while (wall->is_hit == false)
@@ -97,10 +100,12 @@ void	raycasting(t_cube *cube)
 	while (x_coord < SCREEN_WIDTH)
 	{
 		// init_camera_position(&cube->player, &cube->map, &cube-camera);
-		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord, &cube->map);
+		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
+			&x_coord, &cube->map);
 		calculate_length_to_next_x(&cube->ray);
 		calculate_step_and_side_dist(&cube->player, &cube->ray, &cube->map);
-		perform_DDA_algorithm(&cube->ray, &cube->player, &cube->wall, &cube->map);
+		perform_dda_algorithm(&cube->ray, &cube->player,
+			&cube->wall, &cube->map);
 		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
 		calculate_height_line(&cube->wall, &cube->draw);
 		draw_column(&cube->wall, &cube->map, &cube->mlx, &x_coord, &cube->draw);

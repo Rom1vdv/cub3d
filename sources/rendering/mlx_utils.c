@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/07 16:14:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:22:35 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	key_pressed(int keycode, t_cube *cube)
 		rotate_right(cube);
 	return (0);
 }
-/* might be useless */
+
 int	ft_released(int keycode, t_cube *cube)
 {
 	(void) keycode;

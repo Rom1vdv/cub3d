@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:30:41 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/27 14:43:14 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:20:11 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int	ft_atoi(const char *str)
 		return (-2);
 	return (sign * res);
 }
+
 void	ft_swap_double(double *x, double *y)
 {
-	double tmp;
+	double	tmp;
 
 	tmp = *x;
 	*x = *y + 0.5;

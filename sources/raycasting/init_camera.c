@@ -6,14 +6,14 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 11:13:04 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/07 14:38:33 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:32:11 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
-static void	init_camera_position_NS(t_player *player, t_map *map, t_camera *camera)
+static void	init_camera_position_ns(t_player *player, t_map *map,
+	t_camera *camera)
 {
 	if (map->player_orientation == 'N')
 	{
@@ -31,7 +31,8 @@ static void	init_camera_position_NS(t_player *player, t_map *map, t_camera *came
 	}
 }
 
-static void	init_camera_position_EW(t_player *player, t_map *map, t_camera *camera)
+static void	init_camera_position_ew(t_player *player, t_map *map,
+	t_camera *camera)
 {
 	if (map->player_orientation == 'E')
 	{
@@ -48,6 +49,7 @@ static void	init_camera_position_EW(t_player *player, t_map *map, t_camera *came
 		camera->plane_y = 0;
 	}
 }
+
 void	init_camera_position(t_player *player, t_map *map, t_camera *camera)
 {
 	if (map->player_orientation == 'N' || map->player_orientation == 'S')

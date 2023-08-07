@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/27 14:34:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:22:58 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	init_mlx(t_mlx *mlx, t_cube *cube)
 	mlx->img = mlx_new_image(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!mlx->img)
 		return (0);
-	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel, &mlx->line_length,
-			&mlx->endian);
+	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel,
+			&mlx->line_length, &mlx->endian);
 	return (run_mlx(mlx, cube));
 }
