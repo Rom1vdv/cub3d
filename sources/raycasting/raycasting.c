@@ -6,24 +6,25 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 15:48:08 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:36:24 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player, int *x, t_map *map)
+void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
+	int *x, t_map *map)
 {
-	int	x_coord;
-
-	x_coord = *x;
-	camera->current_x = 2 * x_coord / (double)SCREEN_WIDTH - 1;
+	camera->current_x = 2 * (*x) / SCREEN_WIDTH - 1;
+	// printf("x coord is : %f\n", map->player_x);
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
 	ray->direction_y = player->director_vector_y + camera->plane_y
 		* camera->current_x;
-	player->current_square_x = map->player_x;
-	player->current_square_y = map->player_y;
+	player->current_square_x = (int) map->player_x;
+	player->current_square_y = (int) map->player_y;
+	// printf("ray x :%f\n", ray->direction_x);
+	// printf("ray y :%f\n", ray->direction_y);
 }
 
 void	calculate_length_to_next_x(t_ray *ray)
@@ -65,7 +66,9 @@ void	calculate_step_and_side_dist(t_player *player, t_ray *ray, t_map *map)
 				- map->player_y) * ray->distance_to_next_y;
 	}
 }
-void	perform_DDA_algorithm(t_ray *ray, t_player *player, t_wall *wall, t_map *map)
+
+void	perform_dda_algorithm(t_ray *ray, t_player *player,
+	t_wall *wall, t_map *map)
 {
 	wall->is_hit = false;
 	while (wall->is_hit == false)
@@ -96,11 +99,13 @@ void	raycasting(t_cube *cube)
 	x_coord = 0;
 	while (x_coord < SCREEN_WIDTH)
 	{
-		//change camera depending on NSEW -> modifying dirX and planeY together or dirY and planeX together
-		instantiate_ray(&cube->camera, &cube->ray, &cube->player, &x_coord, &cube->map);
+		// init_camera_position(&cube->player, &cube->map, &cube-camera);
+		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
+			&x_coord, &cube->map);
 		calculate_length_to_next_x(&cube->ray);
 		calculate_step_and_side_dist(&cube->player, &cube->ray, &cube->map);
-		perform_DDA_algorithm(&cube->ray, &cube->player, &cube->wall, &cube->map);
+		perform_dda_algorithm(&cube->ray, &cube->player,
+			&cube->wall, &cube->map);
 		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
 		calculate_height_line(&cube->wall, &cube->draw);
 		draw_column(&cube->wall, &cube->map, &cube->mlx, &x_coord, &cube->draw);

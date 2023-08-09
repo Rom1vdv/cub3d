@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/06/19 17:07:59 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:22:58 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color)
 			* (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+
 int	run_mlx(t_mlx *mlx, t_cube *cube)
 {
 	mlx_hook(mlx->win, ON_DESTROY, 0, ft_close, mlx);
-	mlx_hook(mlx->win, ON_KEYUP, 0, ft_released, mlx);
-	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, mlx);
-	raycasting(cube);
-	render(cube);
-	mlx_put_image_to_window(mlx, mlx->win, mlx->img, 0, 0);
+	mlx_hook(mlx->win, ON_KEYUP, 0, ft_released, cube);
+	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, cube);
+	mlx_loop_hook(mlx->init, cube_loop, cube);
+	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
 	return (1);
 }
@@ -45,7 +45,7 @@ int	init_mlx(t_mlx *mlx, t_cube *cube)
 	mlx->img = mlx_new_image(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!mlx->img)
 		return (0);
-	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel, &mlx->line_length,
-			&mlx->endian);
+	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel,
+			&mlx->line_length, &mlx->endian);
 	return (run_mlx(mlx, cube));
 }

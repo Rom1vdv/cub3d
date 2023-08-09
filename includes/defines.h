@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:19:17 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 17:10:26 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:49:31 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define MOV_SPEED 0.1
 # endif
 # ifndef ROT_SPEED
-# define ROT_SPEED 0.01
+# define ROT_SPEED 0.1
 # endif
 
 # ifndef TEXTURE_WIDTH

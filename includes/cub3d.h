@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:20:03 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/19 16:47:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:54:26 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 /* MlX components */
 # include "mlx.h"
-# include "mlx_handling.h"
+# include "rendering.h"
 
 /* Parsing */
 # include "parsing.h"

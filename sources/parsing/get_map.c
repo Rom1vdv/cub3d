@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 13:56:31 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:58:22 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	store_map(char *file, t_cube *cub)
 	int		fd;
 	int		i;
 	char	*line;
-
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -66,7 +65,8 @@ int	store_map(char *file, t_cube *cub)
 		printf("|%s|\n", cub->map.map[i]);
 		i++;
 	}
-	// end print map
+	cub->map.map[(int)cub->map.player_x][(int)cub->map.player_y] = '0';
+	ft_swap_double(&cub->map.player_x, &cub->map.player_y);
 	return (0);
 }
 

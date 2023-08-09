@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controls.c                                         :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 15:53:26 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/19 16:47:23 by romvan-d         ###   ########.fr       */
+/*   Created: 2023/06/20 13:54:56 by romvan-d          #+#    #+#             */
+/*   Updated: 2023/08/07 16:21:25 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	render(t_cube *cube)
 {
-	movements(cube);
+	raycasting(cube);
+	mlx_put_image_to_window(&cube->mlx.init, cube->mlx.win,
+		cube->mlx.img, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/19 16:16:25 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:31:12 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_struc(char *av)
 {
-    t_cube	cub;
+	t_cube	cub;
 
 	cub.textures.no = 0;
 	cub.textures.so = 0;
@@ -23,6 +23,7 @@ void	init_struc(char *av)
 	cub.textures.f = 0;
 	cub.textures.c = 0;
 	cub.map.map = 0;
+	cub.map.player_orientation = 0;
 	cub.map.start_line = 0;
 	cub.map.x = 0;
 	cub.map.y = 0;
@@ -44,7 +45,7 @@ void	init_struc(char *av)
 	cub.player.current_square_x = 0;
 	cub.player.current_square_y = 0;
 	cub.camera.plane_x = 0;
-	cub.camera.plane_y = 0.66;
+	cub.camera.plane_y = 1;
 	cub.camera.current_x = 0;
 	cub.ray.direction_x = 0;
 	cub.ray.direction_y = 0;
@@ -61,13 +62,12 @@ void	init_struc(char *av)
 	cub.draw.start_pos = 0;
 	cub.draw.line_height = 0;
 	check_file(av, &cub);
-    init_mlx(&cub.mlx, &cub);
+	init_mlx(&cub.mlx, &cub);
 }
 
 int	main(int ac, char **av)
 {
 	(void)ac;
-	
 	init_struc(av[1]);
 	return (0);
 }
