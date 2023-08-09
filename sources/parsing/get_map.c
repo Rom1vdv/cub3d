@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 13:58:22 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:24:56 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	get_map_size(char *line, t_cube *cub)
 			cub->map.player_x = i;
 			cub->map.player_y = cub->map.y;
 			cub->map.player_found = 1;
+			cub->map.player_orientation = line[i];
 		}
 		i++;
 	}

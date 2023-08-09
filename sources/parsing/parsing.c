@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 13:51:13 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:12:52 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	catch_textures(char *line, t_cube *cub, int line_count)
 			error("Something went wrong with the map\n", 0, 0);
 	}
 	else if (line[0] == 'N' && line[1] == 'O')
-		res = get_texture(line, 1, cub);
+		res = get_texture(line, 1, cub);	
 	else if (line[0] == 'S' && line[1] == 'O')
 		res = get_texture(line, 2, cub);
 	else if (line[0] == 'W' && line[1] == 'E')
