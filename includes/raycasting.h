@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/23 14:09:29 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:00:38 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@
 
 
 void	raycasting(t_cube *cube);
-void	calculate_closest_point_to_wall(t_cube *cube);
-void	calculate_height_line(t_cube *cube);
-void	draw_column(t_cube *cube, int *x);
-
+void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray);
+void	calculate_height_line(t_wall *wall, t_draw *draw);
+void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw);
+void	init_camera_position(t_player *player, t_map *map, t_camera *camera);
 
 #endif

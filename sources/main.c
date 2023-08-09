@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:12 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/20 09:51:22 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:01:41 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_struc(char *av)
 {
-    t_cube	cub;
+	t_cube	cub;
 
 	cub.textures.no = 0;
 	cub.textures.so = 0;
@@ -23,6 +23,7 @@ void	init_struc(char *av)
 	cub.textures.f = 0;
 	cub.textures.c = 0;
 	cub.map.map = 0;
+	cub.map.player_orientation = 0;
 	cub.map.start_line = 0;
 	cub.map.x = 0;
 	cub.map.y = 0;
@@ -47,8 +48,7 @@ void	init_struc(char *av)
 	cub.xpm_file.width = 0;
 	cub.xpm_file.height = 0;
 	cub.camera.plane_x = 0;
-	cub.camera.plane_y = 0.66;
-	cub.camera.plane_y = 0.66;
+	cub.camera.plane_y = 1;
 	cub.camera.current_x = 0;
 	cub.ray.direction_x = 0;
 	cub.ray.direction_y = 0;
@@ -65,13 +65,12 @@ void	init_struc(char *av)
 	cub.draw.start_pos = 0;
 	cub.draw.line_height = 0;
 	check_file(av, &cub);
-    init_mlx(&cub.mlx, &cub);
+	init_mlx(&cub.mlx, &cub);
 }
 
 int	main(int ac, char **av)
 {
 	(void)ac;
-	
 	init_struc(av[1]);
 	return (0);
 }

@@ -6,12 +6,17 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/23 15:09:38 by aburnott         ###   ########.fr       */
+=======
+/*   Updated: 2023/08/07 16:36:24 by romvan-d         ###   ########.fr       */
+>>>>>>> romvan-d
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+<<<<<<< HEAD
 void	instantiate_ray(t_cube *cube, int *x)
 {
 	int	x_coord;
@@ -28,6 +33,21 @@ void	instantiate_ray(t_cube *cube, int *x)
 	cube->player.current_square_y = cube->map.player_y;
 	printf("current_square_x = %d\n", cube->player.current_square_x);
 	printf("current_square_y = %d\n", cube->player.current_square_y);
+=======
+void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
+	int *x, t_map *map)
+{
+	camera->current_x = 2 * (*x) / SCREEN_WIDTH - 1;
+	// printf("x coord is : %f\n", map->player_x);
+	ray->direction_x = player->director_vector_x + camera->plane_x
+		* camera->current_x;
+	ray->direction_y = player->director_vector_y + camera->plane_y
+		* camera->current_x;
+	player->current_square_x = (int) map->player_x;
+	player->current_square_y = (int) map->player_y;
+	// printf("ray x :%f\n", ray->direction_x);
+	// printf("ray y :%f\n", ray->direction_y);
+>>>>>>> romvan-d
 }
 
 void	calculate_length_to_next_x(t_cube *cube)
@@ -72,7 +92,13 @@ void	calculate_step_and_side_dist(t_cube *cube)
 				- cube->map.player_y) * cube->ray.distance_to_next_y;
 	}
 }
+<<<<<<< HEAD
 void	perform_DDA_algorithm(t_cube *cube)
+=======
+
+void	perform_dda_algorithm(t_ray *ray, t_player *player,
+	t_wall *wall, t_map *map)
+>>>>>>> romvan-d
 {
 	cube->wall.is_hit = false;
 	while (cube->wall.is_hit == false)
@@ -103,6 +129,7 @@ void	raycasting(t_cube *cube)
 	x_coord = 0;
 	while (x_coord < SCREEN_WIDTH)
 	{
+<<<<<<< HEAD
         printf("RAYCASTING COORD: %d\n", x_coord);
 		//change camera depending on NSEW -> modifying dirX and planeY together or dirY and planeX together
 		instantiate_ray(cube, &x_coord);
@@ -112,6 +139,18 @@ void	raycasting(t_cube *cube)
 		calculate_closest_point_to_wall(cube);
 		calculate_height_line(cube);
 		draw_column(cube, &x_coord);
+=======
+		// init_camera_position(&cube->player, &cube->map, &cube-camera);
+		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
+			&x_coord, &cube->map);
+		calculate_length_to_next_x(&cube->ray);
+		calculate_step_and_side_dist(&cube->player, &cube->ray, &cube->map);
+		perform_dda_algorithm(&cube->ray, &cube->player,
+			&cube->wall, &cube->map);
+		calculate_closest_point_to_wall(&cube->wall, &cube->ray);
+		calculate_height_line(&cube->wall, &cube->draw);
+		draw_column(&cube->wall, &cube->map, &cube->mlx, &x_coord, &cube->draw);
+>>>>>>> romvan-d
 		++x_coord;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/06/23 14:31:06 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:00:59 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_mlx
 
 typedef struct s_player
 {
-	double	starting_pos_x; //posX
-	double	starting_pos_y; // posY
 	double	director_vector_x; //dirX
 	double	director_vector_y; //dirY
 	int		current_square_x; //mapX
@@ -79,8 +77,8 @@ typedef struct s_map
 	int				x;
 	int				y;
 	int				player_found;
-	double				player_x;
-	double				player_y;
+	double			player_x;
+	double			player_y;
 	int				map_error;
 	int				player_patch;
 	unsigned int	floor;
