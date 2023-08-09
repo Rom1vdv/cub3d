@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 10:33:59 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:07:33 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:50:43 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int	check_map(t_cube *cub)
 	int	j;
 
 	i = 0;
-	while (i < cub->map.x)
+	while (i < cub->map.y)
 	{
 		j = 0;
-		while (j < cub->map.y - 1)
+		while (j < cub->map.x - 1)
 		{
 			if (cub->map.map[i][j] != '1' && cub->map.map[i][j] != ' ')
 			{
 				if (cub->map.map[i][j] == '0'
-						&& (i == 0 || i == cub->map.x - 1))
+						&& (i == 0 || i == cub->map.y - 1))
 					return (0);
 				else if ((cub->map.map[i][j] == '0'
 					&& cub->map.map[i][j + 1] == ' ')

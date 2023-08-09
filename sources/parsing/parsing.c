@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 16:14:36 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:51:13 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	check_file(char *file, t_cube *cub)
 	}
 	close(fd);
 	store_map(file, cub);
-	printf("Map size: %d x %d\n", cub->map.x, cub->map.y);
+	printf("Map size: %d x %d\n", cub->map.y, cub->map.x);
 	if (!check_map(cub) || !cub->map.player_found)
 		error("Something went wrong with the map\n", 0, 0);
 	return (0);
