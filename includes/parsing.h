@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:28:19 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:04:36 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:04:34 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int		store_map(char *file, t_cube *cub);
 int		check_map(t_cube *cub);
 char	*check_texture(char *path);
 void	set_color(t_cube *cub, char *line, int type);
+void	init_struc(char *av);
 
 #endif

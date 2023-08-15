@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 14:02:23 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/15 19:53:39 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	store_map(char *file, t_cube *cub)
 		printf("|%s|\n", cub->map.map[i]);
 		i++;
 	}
-	cub->map.map[(int)cub->map.player_x][(int)cub->map.player_y] = '0';
-	ft_swap_double(&cub->map.player_x, &cub->map.player_y);
+	cub->map.map[(int)cub->map.player_y][(int)cub->map.player_x] = '0';
+	ft_swap_double(&cub->map.player_y, &cub->map.player_x);
 	return (0);
 }
 
@@ -80,9 +80,11 @@ int	get_map_size(char *line, t_cube *cub)
 		if (line[i] == 'N' || line[i] == 'S'
 			|| line[i] == 'W' || line[i] == 'E')
 		{
-			cub->map.player_x = i;
-			cub->map.player_y = cub->map.y;
+			cub->map.player_x = i + 1;
+			cub->map.player_y = (int)cub->map.y + 1;
 			cub->map.player_found = 1;
+			cub->map.player_orientation = line[i];
+			printf("player found at %d, %d\n", (int)cub->map.player_x, (int)cub->map.player_y);
 		}
 		i++;
 	}

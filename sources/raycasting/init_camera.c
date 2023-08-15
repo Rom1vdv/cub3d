@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 11:13:04 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/07 16:32:11 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:49:33 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	init_camera_position_ew(t_player *player, t_map *map,
 void	init_camera_position(t_player *player, t_map *map, t_camera *camera)
 {
 	if (map->player_orientation == 'N' || map->player_orientation == 'S')
-		init_camera_position_NS(player, map, camera);
+		init_camera_position_ns(player, map, camera);
 	else if (map->player_orientation == 'E' || map->player_orientation == 'W')
-		init_camera_position_EW(player, map, camera);
+		init_camera_position_ew(player, map, camera);
 }

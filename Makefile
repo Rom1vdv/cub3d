@@ -8,6 +8,7 @@ SRCS = main.c \
 		gnl/get_next_line_utils.c \
 		parsing/check_map.c \
 		parsing/get_map.c \
+		parsing/init.c \
 		parsing/parsing.c \
 		parsing/check.c \
 		utils/utils.c \
@@ -20,7 +21,8 @@ SRCS = main.c \
 		raycasting/raycasting.c\
 		raycasting/raycasting2.c\
 		raycasting/movements.c\
-		raycasting/rotations.c
+		raycasting/rotations.c\
+		raycasting/init_camera.c\
 
 OBJS_DIR = objs
 

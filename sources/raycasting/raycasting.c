@@ -6,11 +6,7 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/23 15:09:38 by aburnott         ###   ########.fr       */
-=======
-/*   Updated: 2023/08/07 16:36:24 by romvan-d         ###   ########.fr       */
->>>>>>> romvan-d
+/*   Updated: 2023/08/15 19:54:53 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +136,7 @@ void	raycasting(t_cube *cube)
 		calculate_height_line(cube);
 		draw_column(cube, &x_coord);
 =======
-		// init_camera_position(&cube->player, &cube->map, &cube-camera);
+		init_camera_position(&cube->player, &cube->map, &cube->camera);
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
 			&x_coord, &cube->map);
 		calculate_length_to_next_x(&cube->ray);
