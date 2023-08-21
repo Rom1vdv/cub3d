@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/09 14:00:59 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:10:50 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ typedef struct s_map
 
 typedef struct s_textures
 {
+	double	wall_x;
+	double	texture_x;
+	double	texture_y;
 	char	*no;
 	char	*so;
 	char	*we;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/15 19:55:16 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:11:31 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,5 @@ void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 		++y;
 	}
 }
+// void	draw_columns()
+

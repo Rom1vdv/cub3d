@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/15 19:54:53 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:11:23 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
 	int *x, t_map *map)
 {
 	camera->current_x = 2 * (*x) / SCREEN_WIDTH - 1;
-	// printf("x coord is : %f\n", map->player_x);
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
 	ray->direction_y = player->director_vector_y + camera->plane_y
 		* camera->current_x;
 	player->current_square_x = (int) map->player_x;
 	player->current_square_y = (int) map->player_y;
-	// printf("ray x :%f\n", ray->direction_x);
-	// printf("ray y :%f\n", ray->direction_y);
->>>>>>> romvan-d
+	// printf("ray x :%f\n", map->player_x);
+	// printf("ray y :%d\n", map->y);
+	// printf("current x :%d\n",player->current_square_x);
+	// printf("current y :%d\n", player->current_square_y);
 }
 
 void	calculate_length_to_next_x(t_cube *cube)
@@ -125,18 +125,6 @@ void	raycasting(t_cube *cube)
 	x_coord = 0;
 	while (x_coord < SCREEN_WIDTH)
 	{
-<<<<<<< HEAD
-        printf("RAYCASTING COORD: %d\n", x_coord);
-		//change camera depending on NSEW -> modifying dirX and planeY together or dirY and planeX together
-		instantiate_ray(cube, &x_coord);
-		calculate_length_to_next_x(cube);
-		calculate_step_and_side_dist(cube);
-		perform_DDA_algorithm(cube);
-		calculate_closest_point_to_wall(cube);
-		calculate_height_line(cube);
-		draw_column(cube, &x_coord);
-=======
-		init_camera_position(&cube->player, &cube->map, &cube->camera);
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
 			&x_coord, &cube->map);
 		calculate_length_to_next_x(&cube->ray);
