@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/09 15:03:31 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:08:04 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,5 @@ void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw)
 		++y;
 	}
 }
+// void	draw_columns()
+
