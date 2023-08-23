@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:50:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/23 16:27:49 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:14:06 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	init_player_and_camera_and_ray(t_cube *cube)
 
 static void	init_textures(t_cube *cube)
 {
+	cube->textures.stored = NULL;
 	cube->textures.no = 0;
 	cube->textures.so = 0;
 	cube->textures.we = 0;

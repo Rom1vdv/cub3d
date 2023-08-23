@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/23 16:27:28 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:43:44 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ typedef struct s_map
 typedef struct s_textures
 {
 	double	wall_x;
-	double	x;
-	double	y;
+	int	x;
+	int	y;
+	char	**stored;
 	int		width;
 	int		height;
 	int		choice;
