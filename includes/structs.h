@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/21 12:48:35 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:27:28 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,25 +88,23 @@ typedef struct s_map
 typedef struct s_textures
 {
 	double	wall_x;
-	double	texture_x;
-	double	texture_y;
+	double	x;
+	double	y;
+	int		width;
+	int		height;
+	int		choice;
+	int		colour;
 	char	*no;
 	char	*so;
 	char	*we;
 	char	*ea;
 	char	*f;
 	char	*c;
-}	t_textures;
-
-typedef struct s_xpm_file
-{
-	int		width;
-	int		height;
 	void	*wall_no;
 	void	*wall_so;
 	void	*wall_we;
 	void	*wall_ea;
-}	t_xpm_file;
+}	t_textures;
 
 typedef struct s_cube
 {
@@ -117,7 +115,6 @@ typedef struct s_cube
 	t_draw		draw;
 	t_mlx		mlx;
 	t_textures	textures;
-	t_xpm_file	xpm_file;
 	t_map		map;
 }	t_cube;
 

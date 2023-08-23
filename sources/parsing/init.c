@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:50:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/21 15:15:18 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:27:49 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,15 @@ static void	init_textures(t_cube *cube)
 	cube->textures.so = 0;
 	cube->textures.we = 0;
 	cube->textures.ea = 0;
+	cube->textures.choice = 0;
+	cube->textures.colour = 0;
 	cube->textures.f = 0;
 	cube->textures.c = 0;
-	cube->textures.texture_x = 0;
-	cube->textures.texture_y = 0;
+	cube->textures.x = 0;
+	cube->textures.y = 0;
+	cube->textures.height = 64;
+	cube->textures.width = 64;
 	cube->textures.wall_x = 0;
-	cube->xpm_file.wall_no = 0;
-	cube->xpm_file.wall_so = 0;
-	cube->xpm_file.wall_we = 0;
-	cube->xpm_file.wall_ea = 0;
-	cube->xpm_file.width = 0;
-	cube->xpm_file.height = 0;
 }
 
 static void	init_walls_and_drawings(t_cube *cube)
