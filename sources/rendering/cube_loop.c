@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:46:32 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/23 18:13:56 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:17:33 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static	void display_wall(t_cube *cube)
 	while(cube->map.map[y] && y < 5)
 	{
 		x = 0;
-		printf("%s\n", cube->map.map[y]);
 		while(cube->map.map[y][x])
 		{
 			if (cube->map.map[y][x] == '1')

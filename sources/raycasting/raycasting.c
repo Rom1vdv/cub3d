@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/21 15:14:25 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:35:14 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
 	int *x, t_map *map)
 {
-	camera->current_x = 2 * (*x) / SCREEN_WIDTH - 1;
+	camera->current_x = 2 * (*x) / (double)SCREEN_WIDTH - 1;
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
 	ray->direction_y = player->director_vector_y + camera->plane_y
 		* camera->current_x;
 	player->current_square_x = (int) map->player_x;
 	player->current_square_y = (int) map->player_y;
-	// printf("ray x :%f\n", map->player_x);
-	// printf("ray y :%d\n", map->y);
-	// printf("current x :%d\n",player->current_square_x);
-	// printf("current y :%d\n", player->current_square_y);
 }
 
 void	calculate_length_to_next_x(t_ray *ray)

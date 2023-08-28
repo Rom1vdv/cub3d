@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:26:09 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/21 14:48:39 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:03:10 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	forward_movement(t_cube *cube)
 	printf("pos y : %f\n", cube->map.player_y);
 	printf("new pos x : %d\n", new_pos_x);
 	printf("mew pos y : %d\n", new_pos_y);
-	if (cube->map.map[(int)cube->map.player_y][new_pos_x] != '1')
+	if (cube->map.map[new_pos_x][(int)cube->map.player_y] != '1')
 	{
 		printf("nsm\n");
 		cube->map.player_x += cube->player.director_vector_x * MOV_SPEED;
 	}
-	if (cube->map.map[new_pos_y][(int)(cube->map.player_x)] != '1')
+	if (cube->map.map[(int)(cube->map.player_x)][new_pos_y] != '1')
 	{
 		cube->map.player_y += cube->player.director_vector_y * MOV_SPEED;
 	}
@@ -43,11 +43,11 @@ void	backward_movement(t_cube *cube)
 
 	new_pos_x = cube->map.player_x - cube->player.director_vector_x * MOV_SPEED;
 	new_pos_y = cube->map.player_y - cube->player.director_vector_y * MOV_SPEED;
-	if (cube->map.map[(int)cube->map.player_y][new_pos_x] != '1')
+	if (cube->map.map[new_pos_x][(int)cube->map.player_y] != '1')
 	{
 		cube->map.player_x -= cube->player.director_vector_x * MOV_SPEED;
 	}
-	if (cube->map.map[new_pos_y][(int)(cube->map.player_x)] != '1')
+	if (cube->map.map[(int)(cube->map.player_x)][new_pos_y] != '1')
 	{
 		cube->map.player_y -= cube->player.director_vector_y * MOV_SPEED;
 	}
