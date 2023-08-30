@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:06:07 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/27 14:14:52 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:28:45 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int		ft_released(int keycode, t_cube *cube);
 void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color);
 void	render(t_cube *cube);
 int		cube_loop(t_cube *cube);
+int		to_xpm(t_mlx *mlx, t_cube *cube);
 #endif

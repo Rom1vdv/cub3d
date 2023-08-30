@@ -18,6 +18,7 @@ SRCS = main.c \
 		rendering/mlx.c\
 		rendering/cube_loop.c\
 		rendering/render.c\
+		rendering/textures.c\
 		raycasting/raycasting.c\
 		raycasting/raycasting2.c\
 		raycasting/movements.c\
