@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/30 14:35:13 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:21:23 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ int	key_pressed(int keycode, t_cube *cube)
 	return (0);
 }
 
-int	to_xpm(t_mlx *mlx, t_cube *cube)
-{
+void	to_xpm(t_mlx *mlx, t_cube *cube)
+{	
+	int	i;
+
+	i = 0;
 	cube->textures.stored = ft_malloc(sizeof(void *) * 4);
 	cube->textures.wall_ea = mlx_xpm_file_to_image(mlx->init, cube->textures.ea,
 			&cube->textures.width, &cube->textures.height);
@@ -54,11 +57,10 @@ int	to_xpm(t_mlx *mlx, t_cube *cube)
 			&cube->textures.width, &cube->textures.height);
 	cube->textures.stored[0] = mlx_get_data_addr(cube->textures.wall_no,
 		&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
-	cube->textures.stored[1] = mlx_get_data_addr(cube->textures.wall_so,
-		&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
-	cube->textures.stored[2] = mlx_get_data_addr(cube->textures.wall_ea,
-		&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
-	cube->textures.stored[3] = mlx_get_data_addr(cube->textures.wall_we,
-		&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
-	return (0);
+	// cube->textures.stored[1] = mlx_get_data_addr(cube->textures.wall_so,
+	// 	&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
+	// cube->textures.stored[2] = mlx_get_data_addr(cube->textures.wall_ea,
+	// 	&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
+	// cube->textures.stored[3] = mlx_get_data_addr(cube->textures.wall_we,
+	// 	&cube->mlx.bits_per_pixel, &cube->mlx.line_length, &cube->mlx.endian);
 }

@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/08/30 16:27:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:04:46 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	run_mlx(t_mlx *mlx, t_cube *cube)
 {
 	mlx_hook(mlx->win, ON_DESTROY, 0, ft_close, mlx);
 	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, cube);
-	to_xpm(mlx, cube);
 	mlx_loop_hook(mlx->init, cube_loop, cube);
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img, 0, 0);
 	mlx_loop(mlx->init);
@@ -47,5 +46,6 @@ int	init_mlx(t_mlx *mlx, t_cube *cube)
 		return (0);
 	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel,
 			&mlx->line_length, &mlx->endian);
+	to_xpm(mlx, cube);
 	return (run_mlx(mlx, cube));
 }
