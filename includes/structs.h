@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/23 17:43:44 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/08/31 12:52:49 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct s_textures
 	double	wall_x;
 	int	x;
 	int	y;
-	char	**stored;
+	char	*stored[4];
 	int		width;
 	int		height;
 	int		choice;

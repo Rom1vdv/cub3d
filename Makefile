@@ -61,7 +61,7 @@ $(MLX) :
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@echo "$(BOLD)Compiling $(YELLOW)$<$(RESET)"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(SFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(BOLD)Cleaning objects$(RESET)"
