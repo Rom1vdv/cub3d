@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/31 14:37:19 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:17:58 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	draw_columns(t_ray *ray, t_textures *textures, t_wall *wall, t_map *map, t_
 		textures->wall_x = map->player_x + wall->shortest_dist_to_wall * ray->direction_x;
 	textures->wall_x -= floor(textures->wall_x);
 	textures->x = (int)(textures->wall_x * textures->width);
-	if (wall->which_side_hit == NORTH_SOUTH && ray->direction_x > 0)
+	if (wall->which_side_hit == NORTH_SOUTH && ray->direction_y > 0)
 		textures->x = textures->width - textures->x - 1;
-	if (wall->which_side_hit == EAST_WEST && ray->direction_y < 0)
+	if (wall->which_side_hit == EAST_WEST && ray->direction_x < 0)
 		textures->x = textures->width - textures->x - 1;
 	y += fill_wall_texture(draw, ray, textures, wall, y, mlx, x);
 	fill_floor_and_ceiling(y, draw, x, map, mlx);
