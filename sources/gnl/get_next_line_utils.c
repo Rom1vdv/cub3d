@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:57 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/19 00:00:52 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:57:37 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*free_all(char *save, char *buf)
 }
 
 int	search_n(char *save)
-{	
+{
 	int	i;
 
 	i = 0;

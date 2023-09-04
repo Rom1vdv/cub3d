@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:26:09 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/30 16:56:21 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:57:57 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	left_movement(t_cube *cube)
 {
 	int	new_pos_x;
 	int	new_pos_y;
-	
+
 	new_pos_x = cube->map.player_x - cube->camera.plane_x * MOV_SPEED;
 	new_pos_y = cube->map.player_y - cube->camera.plane_y * MOV_SPEED;
 	if (cube->map.map[new_pos_x][(int)cube->map.player_y] != '1')

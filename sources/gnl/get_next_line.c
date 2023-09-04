@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:28 by aburnott          #+#    #+#             */
-/*   Updated: 2023/05/18 21:15:48 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:57:32 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*before_n(char *save, int *count)
 }
 
 static char	*after_n(char *save, int count)
-{	
+{
 	char	*new_save;
 	int		i;
 

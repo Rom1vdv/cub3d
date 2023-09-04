@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/31 14:37:43 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:23:31 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	instantiate_ray(t_camera *camera, t_ray *ray, t_player *player,
 	int *x, t_map *map)
 {
-	camera->current_x = 2 * (*x) / (double)SCREEN_WIDTH - 1;
+	camera->current_x = 2 * (double)(*x) / (double)SCREEN_WIDTH - 1;
 	ray->direction_x = player->director_vector_x + camera->plane_x
 		* camera->current_x;
 	ray->direction_y = player->director_vector_y + camera->plane_y
@@ -95,7 +95,7 @@ void	raycasting(t_cube *cube)
 	static int	counter;
 	
 	x_coord = 0;
-	while (x_coord < SCREEN_WIDTH)
+	while (x_coord <= SCREEN_WIDTH)
 	{
 		instantiate_ray(&cube->camera, &cube->ray, &cube->player,
 			&x_coord, &cube->map);
