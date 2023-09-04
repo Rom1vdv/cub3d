@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/08/31 11:51:19 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:31:42 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	run_mlx(t_mlx *mlx, t_cube *cube)
 }
 
 int	init_mlx(t_mlx *mlx, t_cube *cube)
-{	
+{
 	mlx->init = mlx_init();
 	if (!mlx->init)
 		return (0);

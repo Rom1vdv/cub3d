@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:49:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/04 15:41:53 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:30:36 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray)
 {
 	if (wall->which_side_hit == EAST_WEST)
-		wall->shortest_dist_to_wall = (ray->move_to_next_x - ray->distance_to_next_x);
+		wall->shortest_dist_to_wall = (ray->move_to_next_x
+				- ray->distance_to_next_x);
 	else
-		wall->shortest_dist_to_wall = (ray->move_to_next_y - ray->distance_to_next_y);
+		wall->shortest_dist_to_wall = (ray->move_to_next_y
+				- ray->distance_to_next_y);
 }
 
 void	calculate_height_line(t_wall *wall, t_draw *draw)
@@ -31,37 +33,40 @@ void	calculate_height_line(t_wall *wall, t_draw *draw)
 		draw->end_pos = SCREEN_HEIGHT - 1;
 }
 
-void	fill_floor_and_ceiling(int y, t_draw *draw, int *x, t_map *map, t_mlx *mlx)
+void	fill_floor_and_ceiling(t_cube *cube, int *x_coord, int y)
 {
-	if (draw->end_pos < 0)
-		draw->end_pos = SCREEN_HEIGHT;
-	y = draw->end_pos;
+	if (cube->draw.end_pos < 0)
+		cube->draw.end_pos = SCREEN_HEIGHT;
+	y = cube->draw.end_pos;
 	while (y < SCREEN_HEIGHT)
 	{
-		my_mlx_put_pixel(mlx, *x, y, map->floor);
-		my_mlx_put_pixel(mlx, *x, SCREEN_HEIGHT - y - 1, map->ceiling);
+		my_mlx_put_pixel(&cube->mlx, *x_coord, y, cube->map.floor);
+		my_mlx_put_pixel(&cube->mlx, *x_coord, SCREEN_HEIGHT - y - 1,
+			cube->map.ceiling);
 		++y;
 	}
 }
 
-void	draw_columns(t_ray *ray, t_textures *textures, t_wall *wall, t_map *map, t_draw *draw, int *x, t_mlx *mlx)
+void	draw_columns(t_cube *cube, int *x_coord)
 {
 	int	y;
-	
+
 	y = 0;
-	if (wall->which_side_hit == EAST_WEST)
+	if (cube->wall.which_side_hit == EAST_WEST)
 	{
-		textures->wall_x = map->player_y + wall->shortest_dist_to_wall * ray->direction_y;
+		cube->textures.wall_x = cube->map.player_y
+			+ cube->wall.shortest_dist_to_wall * cube->ray.direction_y;
 	}
 	else
-		textures->wall_x = map->player_x + wall->shortest_dist_to_wall * ray->direction_x;
-	textures->wall_x -= floor(textures->wall_x);
-	textures->x = (int)(textures->wall_x * (double)textures->width);
-	if (wall->which_side_hit == NORTH_SOUTH && ray->direction_y < 0)
-		textures->x = textures->width - textures->x - 1;
-	if (wall->which_side_hit == EAST_WEST && ray->direction_x > 0)
-		textures->x = textures->width - textures->x - 1;
-	y += fill_wall_texture(draw, ray, textures, wall, y, mlx, x);
-	fill_floor_and_ceiling(y, draw, x, map, mlx);
+		cube->textures.wall_x = cube->map.player_x
+			+ cube->wall.shortest_dist_to_wall * cube->ray.direction_x;
+	cube->textures.wall_x -= floor(cube->textures.wall_x);
+	cube->textures.x = (int)(cube->textures.wall_x
+			* (double)cube->textures.width);
+	if (cube->wall.which_side_hit == NORTH_SOUTH && cube->ray.direction_y < 0)
+		cube->textures.x = cube->textures.width - cube->textures.x - 1;
+	if (cube->wall.which_side_hit == EAST_WEST && cube->ray.direction_x > 0)
+		cube->textures.x = cube->textures.width - cube->textures.x - 1;
+	y += fill_wall_texture(cube, x_coord, y);
+	fill_floor_and_ceiling(cube, x_coord, y);
 }
-

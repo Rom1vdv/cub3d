@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:32:55 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/31 14:37:33 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:24:24 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@
 void	raycasting(t_cube *cube);
 void	calculate_closest_point_to_wall(t_wall *wall, t_ray *ray);
 void	calculate_height_line(t_wall *wall, t_draw *draw);
-void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw);
 void	init_camera_position(t_player *player, t_map *map, t_camera *camera);
-void	draw_columns(t_ray *ray, t_textures *textures, t_wall *wall, t_map *map, t_draw *draw, int *x, t_mlx *mlx);
-int		fill_wall_texture(t_draw *draw, t_ray *ray, t_textures *textures, t_wall *wall, int y, t_mlx *mlx, int *x_coord);
-void	draw_column(t_wall *wall, t_map *map, t_mlx *mlx, int *x, t_draw *draw);
+void	draw_columns(t_cube *cube, int *x_coord);
+int		fill_wall_texture(t_cube *cube, int *x_coord, int y);
 
 #endif
