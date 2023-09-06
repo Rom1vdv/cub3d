@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 17:08:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:33:01 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	store_map(char *file, t_cube *cub)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (-1);
+	printf("map size: %d %d\n", cub->map.x, cub->map.y);
 	cub->map.map = ft_malloc(sizeof(char *) * cub->map.y);
 	while (i < cub->map.y)
 	{
@@ -60,12 +61,13 @@ int	store_map(char *file, t_cube *cub)
 	// print map
 	i = 0;
 	printf("map stored:\n");
+	printf("map size: %d %d\n", cub->map.x, cub->map.y);
 	while (i < cub->map.y)
 	{
 		printf("|%s|\n", cub->map.map[i]);
 		i++;
 	}
-	cub->map.map[(int)cub->map.player_x][(int)cub->map.player_y] = '0';
+	cub->map.map[(int)cub->map.player_y][(int)cub->map.player_x] = '0';
 	ft_swap_double(&cub->map.player_x, &cub->map.player_y);
 	return (0);
 }
