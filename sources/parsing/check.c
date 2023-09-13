@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
+/*   Updated: 2023/09/13 13:04:28 by aburnott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+void	call_suite(t_cube *cub, char *file)
+{
+	check_texture(cub);
+	store_map(file, cub);
+	if (!check_map(cub) || !cub->map.player_found)
+		error(cub, "Something went wrong with the map\n", 0);
+}
+
+void	check_texture(t_cube *cub)
+{
+	if (!cub->textures.no)
+		error(cub, "Invalid NO texture path\n", 0);
+	if (!cub->textures.so)
+		error(cub, "Invalid SO texture path\n", 0);
+	if (!cub->textures.we)
+		error(cub, "Invalid WE texture path\n", 0);
+	if (!cub->textures.ea)
+		error(cub, "Invalid EA texture path\n", 0);
+}
+
+char	*parse_texture(char *path)
+{
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (path);
+}
+
+void	set_color(t_cube *cub, char *line, int type)
+{
+	char	**rgb;
+	int		i;
+	int		current;
+
+	rgb = ft_split(line, ',');
+	if (rgb[0] && rgb[1] && rgb[2])
+	{
+		i = 0;
+		current = 0;
+		while (rgb[i])
+		{
+			current = ft_atoi(rgb[i]);
+			if (current < 0 || current > 255)
+				error(cub, "Invalid RGB value", 0);
+			if (type == 1)
+				cub->map.ceiling = (cub->map.ceiling << 8) + current;
+			else
+				cub->map.floor = (cub->map.floor << 8) + current;
+			i++;
+		}
+	}
+	else
+		error(cub, "Invalid RGB value", 0);
+	ft_free(rgb, 0);
+}

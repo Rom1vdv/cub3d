@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:50:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/31 12:53:18 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:16:04 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,15 @@ static void	init_walls_and_drawings(t_cube *cube)
 	cube->draw.start_pos = 0;
 	cube->draw.line_height = 0;
 }
+
 void	init_struc(char *av)
 {
 	t_cube	cube;
-	
+
 	init_map(&cube);
 	init_player_and_camera_and_ray(&cube);
 	init_textures(&cube);
-	init_walls_and_drawings(&cube);	
+	init_walls_and_drawings(&cube);
 	check_file(av, &cube);
 	init_camera_position(&cube.player, &cube.map, &cube.camera);
 	init_mlx(&cube.mlx, &cube);

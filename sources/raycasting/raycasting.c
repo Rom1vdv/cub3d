@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:37:16 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/04 18:28:22 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 14:42:58 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	perform_dda_algorithm(t_ray *ray, t_player *player,
 void	raycasting(t_cube *cube)
 {
 	int			x_coord;
-	static int	counter;
 
 	x_coord = 0;
 	while (x_coord <= SCREEN_WIDTH)
@@ -106,5 +105,4 @@ void	raycasting(t_cube *cube)
 		draw_columns(cube, &x_coord);
 		++x_coord;
 	}
-	++counter;
 }
