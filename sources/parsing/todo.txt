@@ -1,4 +1,0 @@
-1) Create a structure to store each info
-2) Error handler
-3) Store information in the struct
-4) Checking things thatcna go wrong with the parsing
