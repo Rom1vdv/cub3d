@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/06 15:33:01 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:37:44 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,8 @@ char	*read_current_line(int fd)
 	return (line);
 }
 
-int	store_map(char *file, t_cube *cub)
+static int	insert_map(t_cube *cub, int fd, int i, char *line)
 {
-	int		fd;
-	int		i;
-	char	*line;
-	i = 0;
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (-1);
-	printf("map size: %d %d\n", cub->map.x, cub->map.y);
-	cub->map.map = ft_malloc(sizeof(char *) * cub->map.y);
 	while (i < cub->map.y)
 	{
 		cub->map.map[cub->map.y - 1] = ft_malloc(sizeof(char) * cub->map.x);
@@ -57,16 +48,24 @@ int	store_map(char *file, t_cube *cub)
 		free(line);
 		i++;
 	}
-	close(fd);
-	// print map
+	return (0);
+}
+
+int	store_map(char *file, t_cube *cub)
+{
+	int		fd;
+	int		i;
+	char	*line;
+
 	i = 0;
-	printf("map stored:\n");
-	printf("map size: %d %d\n", cub->map.x, cub->map.y);
-	while (i < cub->map.y)
-	{
-		printf("|%s|\n", cub->map.map[i]);
-		i++;
-	}
+	line = NULL;
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	cub->map.map = ft_malloc(sizeof(char *) * cub->map.y);
+	if (insert_map(cub, fd, i, line) == -1)
+		return (-1);
+	close(fd);
 	cub->map.map[(int)cub->map.player_y][(int)cub->map.player_x] = '0';
 	ft_swap_double(&cub->map.player_x, &cub->map.player_y);
 	return (0);

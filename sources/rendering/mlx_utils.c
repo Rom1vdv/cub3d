@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/06 13:43:23 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:26:54 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_close(t_mlx *mlx)
+int	ft_close(t_mlx *mlx, t_cube *cube)
 {
 	if (mlx->win)
 		mlx_destroy_window(mlx->init, mlx->win);
 	if (mlx->img)
 		mlx_destroy_image(mlx->init, mlx->img);
+	if (cube->map.map)
+		ft_free_end(cube);
 	exit(1);
 	return (0);
 }
@@ -25,7 +27,7 @@ int	ft_close(t_mlx *mlx)
 int	key_pressed(int keycode, t_cube *cube)
 {
 	if (keycode == KEY_ESC)
-		ft_close(&cube->mlx);
+		ft_close(&cube->mlx, cube);
 	else if (keycode == KEY_W)
 		forward_movement(cube);
 	else if (keycode == KEY_S)
@@ -41,6 +43,14 @@ int	key_pressed(int keycode, t_cube *cube)
 	return (0);
 }
 
+static void	check_size(int *width, int *height)
+{
+	if (*width != 64)
+		error(0, "Invalid texture width\n", 0);
+	if (*height != 64)
+		error(0, "Invalid texture height\n", 0);
+}
+
 void	to_xpm(t_mlx *mlx, t_cube *cube)
 {
 	int	x;
@@ -49,12 +59,16 @@ void	to_xpm(t_mlx *mlx, t_cube *cube)
 
 	cube->textures.wall_ea = mlx_xpm_file_to_image(mlx->init, cube->textures.ea,
 			&cube->textures.width, &cube->textures.height);
+	check_size(&cube->textures.width, &cube->textures.height);
 	cube->textures.wall_no = mlx_xpm_file_to_image(mlx->init, cube->textures.no,
 			&cube->textures.width, &cube->textures.height);
+	check_size(&cube->textures.width, &cube->textures.height);
 	cube->textures.wall_so = mlx_xpm_file_to_image(mlx->init, cube->textures.so,
 			&cube->textures.width, &cube->textures.height);
+	check_size(&cube->textures.width, &cube->textures.height);
 	cube->textures.wall_we = mlx_xpm_file_to_image(mlx->init, cube->textures.we,
 			&cube->textures.width, &cube->textures.height);
+	check_size(&cube->textures.width, &cube->textures.height);
 	cube->textures.stored[0] = mlx_get_data_addr(cube->textures.wall_no,
 			&x, &y, &z);
 	cube->textures.stored[1] = mlx_get_data_addr(cube->textures.wall_so,

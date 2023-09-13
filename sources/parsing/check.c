@@ -3,16 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 15:07:42 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:04:28 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	*check_texture(char *path)
+void	call_suite(t_cube *cub, char *file)
+{
+	check_texture(cub);
+	store_map(file, cub);
+	if (!check_map(cub) || !cub->map.player_found)
+		error(cub, "Something went wrong with the map\n", 0);
+}
+
+void	check_texture(t_cube *cub)
+{
+	if (!cub->textures.no)
+		error(cub, "Invalid NO texture path\n", 0);
+	if (!cub->textures.so)
+		error(cub, "Invalid SO texture path\n", 0);
+	if (!cub->textures.we)
+		error(cub, "Invalid WE texture path\n", 0);
+	if (!cub->textures.ea)
+		error(cub, "Invalid EA texture path\n", 0);
+}
+
+char	*parse_texture(char *path)
 {
 	int	fd;
 
@@ -38,7 +58,7 @@ void	set_color(t_cube *cub, char *line, int type)
 		{
 			current = ft_atoi(rgb[i]);
 			if (current < 0 || current > 255)
-				error("Invalid RGB value", 0, 0);
+				error(cub, "Invalid RGB value", 0);
 			if (type == 1)
 				cub->map.ceiling = (cub->map.ceiling << 8) + current;
 			else
@@ -47,5 +67,6 @@ void	set_color(t_cube *cub, char *line, int type)
 		}
 	}
 	else
-		error("Invalid RGB value", 0, 0);
+		error(cub, "Invalid RGB value", 0);
+	ft_free(rgb, 0);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/08/31 12:52:49 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:40:35 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include "cub3d.h"
+# include "cub3d.h"
 
 typedef struct s_mlx
 {
@@ -21,9 +21,9 @@ typedef struct s_mlx
 	void	*win;
 	void	*img;
 	char	*address;
-	int	endian;
-	int	bits_per_pixel;
-	int	line_length;
+	int		endian;
+	int		bits_per_pixel;
+	int		line_length;
 }	t_mlx;
 
 typedef struct s_player
@@ -32,7 +32,6 @@ typedef struct s_player
 	double	director_vector_y; //dirY
 	int		current_square_x; //mapX
 	int		current_square_y; //mapY
-	
 }	t_player;
 
 typedef struct s_camera
@@ -66,7 +65,6 @@ typedef struct s_draw
 	int	line_height;
 	int	start_pos;
 	int	end_pos;
-	
 }	t_draw;
 
 typedef struct s_map
@@ -88,8 +86,8 @@ typedef struct s_map
 typedef struct s_textures
 {
 	double	wall_x;
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	char	*stored[4];
 	int		width;
 	int		height;

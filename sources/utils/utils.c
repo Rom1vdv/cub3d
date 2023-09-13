@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:00:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/06/15 16:22:36 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:02:16 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	*ft_malloc(size_t size)
 	ret = malloc(size);
 	if (!ret)
 	{
-		error("A malloc error occured, exiting the program\n", 0, 0);
+		error(0, "A malloc error occured, exiting the program\n", 0);
 		exit(EXIT_FAILURE);
 	}
 	return (ret);
