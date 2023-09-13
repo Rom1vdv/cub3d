@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:33:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/09 17:08:05 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:12:39 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	store_map(char *file, t_cube *cub)
 		printf("|%s|\n", cub->map.map[i]);
 		i++;
 	}
-	cub->map.map[(int)cub->map.player_x][(int)cub->map.player_y] = '0';
+	cub->map.map[(int)cub->map.player_y][(int)cub->map.player_x] = '0';
 	ft_swap_double(&cub->map.player_x, &cub->map.player_y);
 	return (0);
 }
