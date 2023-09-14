@@ -35,11 +35,6 @@ SFLAGS = -fsanitize=address -g
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
-# Special condition to compile mlx on Linux DO NOT FORGET TO REMOVE BEFOR FINAL PUSH
-ifeq ($(shell uname), Linux)
-	MLXFLAGS = -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
-endif
-
 # Colors
 RESET = \033[0m
 BOLD = \033[1m
@@ -70,7 +65,7 @@ clean:
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
 	@$(RM) $(NAME) $(MLX)
-	# make clean -C mlx
+	@make clean -C mlx
 
 re: fclean all
 

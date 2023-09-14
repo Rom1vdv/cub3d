@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:37:13 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/13 11:40:35 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:33:20 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,29 @@ typedef struct s_mlx
 
 typedef struct s_player
 {
-	double	director_vector_x; //dirX
-	double	director_vector_y; //dirY
-	int		current_square_x; //mapX
-	int		current_square_y; //mapY
+	double	director_vector_x;
+	double	director_vector_y;
+	int		current_square_x;
+	int		current_square_y;
 }	t_player;
 
 typedef struct s_camera
 {
-	double	plane_x; //planeX
-	double	plane_y; // planeY
-	double	current_x; //cameraX
+	double	plane_x;
+	double	plane_y;
+	double	current_x;
 }	t_camera;
 
 typedef struct s_ray
 {
-	double	direction_x;//raydirX
-	double	direction_y;//raydirY
-	double	move_to_next_x; //sideDistX
-	double	move_to_next_y; //sideDistY
-	double	distance_to_next_x; //deltadistX
-	double	distance_to_next_y; //deltadistY
-	int		step_in_x;//stepX
-	int		step_in_y;//stepY
+	double	direction_x;
+	double	direction_y;
+	double	move_to_next_x;
+	double	move_to_next_y;
+	double	distance_to_next_x;
+	double	distance_to_next_y;
+	int		step_in_x;
+	int		step_in_y;
 }	t_ray;
 
 typedef struct s_wall

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:28 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/04 17:57:32 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:38:02 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*read_line(int fd, char *save)
 	int		i;
 
 	i = 0;
-	buf = malloc(sizeof(*buf) * (BUFFER_SIZE + 1));
+	buf = ft_malloc(sizeof(*buf) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (free_all(save, 0));
 	while (!search_n(save))
@@ -47,7 +47,7 @@ static char	*before_n(char *save, int *count)
 		i++;
 	if (save[i] == '\n')
 		i++;
-	line = malloc(sizeof(*line) * i + 1);
+	line = ft_malloc(sizeof(*line) * i + 1);
 	if (!line)
 		return (free_all(save, 0));
 	*count = i;
@@ -68,7 +68,7 @@ static char	*after_n(char *save, int count)
 
 	if (count == ft_strlen(save))
 		return (free_all(save, 0));
-	new_save = malloc(sizeof(*new_save) * (ft_strlen(save) - count) + 1);
+	new_save = ft_malloc(sizeof(*new_save) * (ft_strlen(save) - count) + 1);
 	if (!new_save)
 		return (free_all(save, 0));
 	i = -1;

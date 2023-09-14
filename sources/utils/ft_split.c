@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 22:52:23 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/07 16:20:26 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:38:20 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*word(int *j_int, char const *s, char c)
 		(*j_int)++;
 	while ((s[*j_int + len] != c) && s[*j_int + len])
 		len++;
-	buf = malloc((len + 1) * sizeof(*buf));
+	buf = ft_malloc((len + 1) * sizeof(*buf));
 	if (!buf)
 		return (0);
 	while (i < len)
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	count = ft_count(s, c);
-	strings = malloc(count * sizeof(char *));
+	strings = ft_malloc(count * sizeof(char *));
 	if (!strings)
 		return (0);
 	while (i < count - 1)
