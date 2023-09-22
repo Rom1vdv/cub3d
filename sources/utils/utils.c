@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:00:24 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/13 13:02:16 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:24:43 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ char	*ft_strdup(char *s, int start, int end)
 
 	len = end - start;
 	dup = ft_malloc(sizeof(*dup) * len + 1);
-	if (!dup)
-		return (0);
 	i = 0;
+	while (s[start] == ' ')
+		start++;
 	while (s[start] && start < end)
 	{
-		while (s[start] == ' ')
-			start++;
 		dup[i] = s[start];
 		i++;
 		start++;

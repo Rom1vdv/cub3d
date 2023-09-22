@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/09/04 18:31:42 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:24:26 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	my_mlx_put_pixel(t_mlx *data, int x, int y, int color)
 
 int	run_mlx(t_mlx *mlx, t_cube *cube)
 {
-	mlx_hook(mlx->win, ON_DESTROY, 0, ft_close, mlx);
+	mlx_hook(mlx->win, ON_DESTROY, 0, ft_close, cube);
 	mlx_hook(mlx->win, ON_KEYDOWN, 0, key_pressed, cube);
 	mlx_loop_hook(mlx->init, cube_loop, cube);
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img, 0, 0);

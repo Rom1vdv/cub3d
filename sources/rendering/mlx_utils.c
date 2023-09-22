@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/13 13:26:54 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:28:01 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_close(t_mlx *mlx, t_cube *cube)
+int	ft_close(t_cube *cube)
 {
-	if (mlx->win)
-		mlx_destroy_window(mlx->init, mlx->win);
-	if (mlx->img)
-		mlx_destroy_image(mlx->init, mlx->img);
+	if (cube->mlx.win)
+		mlx_destroy_window(cube->mlx.init, cube->mlx.win);
+	if (cube->mlx.img)
+		mlx_destroy_image(cube->mlx.init, cube->mlx.img);
 	if (cube->map.map)
 		ft_free_end(cube);
 	exit(1);
@@ -27,7 +27,7 @@ int	ft_close(t_mlx *mlx, t_cube *cube)
 int	key_pressed(int keycode, t_cube *cube)
 {
 	if (keycode == KEY_ESC)
-		ft_close(&cube->mlx, cube);
+		ft_close(cube);
 	else if (keycode == KEY_W)
 		forward_movement(cube);
 	else if (keycode == KEY_S)

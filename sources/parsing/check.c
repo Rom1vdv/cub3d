@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/13 13:04:28 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:23:38 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,17 @@ void	check_texture(t_cube *cub)
 
 char	*parse_texture(char *path)
 {
-	int	fd;
+	int		fd;
+	char	**new_path;
 
-	fd = open(path, O_RDONLY);
+	new_path = ft_split(path, ' ');
+	if (new_path[1] != 0)
+		return (0);
+	fd = open(new_path[0], O_RDONLY);
 	if (fd == -1)
 		return (0);
 	close(fd);
-	return (path);
+	return (new_path[0]);
 }
 
 void	set_color(t_cube *cub, char *line, int type)
@@ -50,7 +54,7 @@ void	set_color(t_cube *cub, char *line, int type)
 	int		current;
 
 	rgb = ft_split(line, ',');
-	if (rgb[0] && rgb[1] && rgb[2])
+	if (rgb[0] && rgb[1] && rgb[2] && !rgb[3])
 	{
 		i = 0;
 		current = 0;
