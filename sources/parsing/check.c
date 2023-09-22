@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 21:51:10 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/22 16:23:38 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:37:00 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	set_color(t_cube *cub, char *line, int type)
 		current = 0;
 		while (rgb[i])
 		{
-			current = ft_atoi(rgb[i]);
+			current = ft_atoi(rgb[i], i);
 			if (current < 0 || current > 255)
 				error(cub, "Invalid RGB value", 0);
 			if (type == 1)

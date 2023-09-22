@@ -1,9 +1,9 @@
-WE                     ./textures/wall_3.xpm
+WE ./textures/wall_3.xpm
 NO ./textures/wall_1.xpm
-SO ./textures/wall_2.xpm
 EA ./textures/wall_4.xpm
+SO ./textures/wall_2.xpm
 
-F 4,8,000
+F 4,8,000   
 C 000,000,255
 
         1111111111111111111111111

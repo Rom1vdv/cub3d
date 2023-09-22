@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:30:41 by aburnott          #+#    #+#             */
-/*   Updated: 2023/08/07 16:20:11 by romvan-d         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:37:08 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int type)
 {
 	int		i;
 	int		sign;
@@ -30,7 +30,14 @@ int	ft_atoi(const char *str)
 	if (str[i] == '\n')
 		i++;
 	if ((sign * res > INT_MAX || sign * res < INT_MIN) || str[i])
-		return (-2);
+	{
+		while (type == 2 && (str[i] == ' ' || str[i] == '\n'))
+			i++;
+		if (!str[i])
+			return (sign * res);
+		else
+			return (-2);
+	}
 	return (sign * res);
 }
 
