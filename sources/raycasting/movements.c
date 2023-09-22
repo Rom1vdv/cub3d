@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:26:09 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/22 15:30:13 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:43:34 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	forward_movement(t_cube *cube)
 
 	new_pos_x = cube->map.player_x + (cube->player.director_vector_x + 0.01)
 		* MOV_SPEED;
-	new_pos_y = cube->map.player_y + (cube->player.director_vector_y + 0.01) 
+	new_pos_y = cube->map.player_y + (cube->player.director_vector_y + 0.01)
 		* MOV_SPEED;
 	if (cube->map.map[new_pos_x][(int)cube->map.player_y] != '1')
 	{
@@ -38,7 +38,7 @@ void	backward_movement(t_cube *cube)
 
 	new_pos_x = cube->map.player_x - (cube->player.director_vector_x + 0.01)
 		* MOV_SPEED;
-	new_pos_y = cube->map.player_y - (cube->player.director_vector_y + 0.01) 
+	new_pos_y = cube->map.player_y - (cube->player.director_vector_y + 0.01)
 		* MOV_SPEED;
 	if (cube->map.map[new_pos_x][(int)cube->map.player_y] != '1')
 	{
