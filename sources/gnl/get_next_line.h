@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/13 14:17:42 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:05:32 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "../includes/utils.h"
 
 char	*free_all(char *save, char *buf);
 int		search_n(char *save);

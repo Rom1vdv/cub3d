@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/13 13:02:07 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:04:26 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_texture(char *line, int type, t_cube *cub)
 	{
 		cub->textures.we = \
 			parse_texture(ft_strdup(line, 3, ft_strlen(line) - 1));
-	}	
+	}
 	else if (type == 4)
 	{
 		cub->textures.ea = \

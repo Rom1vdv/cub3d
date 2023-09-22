@@ -20,7 +20,7 @@ SRCS = main.c \
 		rendering/render.c\
 		rendering/textures.c\
 		raycasting/raycasting.c\
-		raycasting/raycasting2.c\
+		raycasting/drawing.c\
 		raycasting/movements.c\
 		raycasting/rotations.c\
 		raycasting/init_camera.c\
