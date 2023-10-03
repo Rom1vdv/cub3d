@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:39:01 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/22 15:28:41 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:38:30 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,16 @@ void	error(t_cube *cub, char *str, int code)
 	if (cub)
 		ft_free_end(cub);
 	exit(errno);
+}
+
+void	check_value(t_cube *cube)
+{
+	if (!cube->textures.wall_ea)
+		error(0, "Invalid content in texture file\n", 0);
+	if (!cube->textures.wall_no)
+		error(0, "Invalid content in texture file\n", 0);
+	if (!cube->textures.wall_so)
+		error(0, "Invalid content in texture file\n", 0);
+	if (!cube->textures.wall_we)
+		error(0, "Invalid content in texture file\n", 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/10/03 17:07:52 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:38:18 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int	init_mlx(t_mlx *mlx, t_cube *cube)
 {
 	mlx->init = mlx_init();
 	if (!mlx->init)
-		return (0);
+		error(0, "MLX ERROR\n", 0);
 	mlx->win = mlx_new_window(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
 	if (!mlx->win)
-		return (0);
+		error(0, "MLX ERROR\n", 0);
 	mlx->img = mlx_new_image(mlx->init, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!mlx->img)
-		return (0);
+		error(0, "MLX ERROR\n", 0);
 	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel,
 			&mlx->line_length, &mlx->endian);
 	if (!mlx->address)
-		return (0);
+		error(0, "MLX ERROR\n", 0);
 	to_xpm(mlx, cube);
 	return (run_mlx(mlx, cube));
 }

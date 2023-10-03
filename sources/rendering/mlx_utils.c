@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/10/03 17:18:36 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:37:27 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,32 @@ static void	check_size(int *width, int *height)
 		error(0, "Invalid texture height\n", 0);
 }
 
-// static int	check_value(char *stored)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < 4)
-// 	{
-// 		if (!stored[i])
-// 			error(0, "Invalid texture\n", 0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
-
-void	to_xpm(t_mlx *mlx, t_cube *cube)
+static void	to_xpm_suite(t_cube *cube)
 {
 	int	x;
 	int	y;
 	int	z;
 
+	cube->textures.stored[0] = mlx_get_data_addr(cube->textures.wall_no,
+			&x, &y, &z);
+	if (!cube->textures.stored[0])
+		error(0, "MLX ERROR\n", 0);
+	cube->textures.stored[1] = mlx_get_data_addr(cube->textures.wall_so,
+			&x, &y, &z);
+	if (!cube->textures.stored[1])
+		error(0, "MLX ERROR\n", 0);
+	cube->textures.stored[2] = mlx_get_data_addr(cube->textures.wall_ea,
+			&x, &y, &z);
+	if (!cube->textures.stored[2])
+		error(0, "MLX ERROR\n", 0);
+	cube->textures.stored[3] = mlx_get_data_addr(cube->textures.wall_we,
+			&x, &y, &z);
+	if (!cube->textures.stored[3])
+		error(0, "MLX ERROR\n", 0);
+}
+
+void	to_xpm(t_mlx *mlx, t_cube *cube)
+{
 	cube->textures.wall_ea = mlx_xpm_file_to_image(mlx->init, cube->textures.ea,
 			&cube->textures.width, &cube->textures.height);
 	check_size(&cube->textures.width, &cube->textures.height);
@@ -83,15 +89,6 @@ void	to_xpm(t_mlx *mlx, t_cube *cube)
 	cube->textures.wall_we = mlx_xpm_file_to_image(mlx->init, cube->textures.we,
 			&cube->textures.width, &cube->textures.height);
 	check_size(&cube->textures.width, &cube->textures.height);
-	cube->textures.stored[0] = mlx_get_data_addr(cube->textures.wall_no,
-			&x, &y, &z);
-	cube->textures.stored[1] = mlx_get_data_addr(cube->textures.wall_so,
-			&x, &y, &z);
-	cube->textures.stored[2] = mlx_get_data_addr(cube->textures.wall_ea,
-			&x, &y, &z);
-	cube->textures.stored[3] = mlx_get_data_addr(cube->textures.wall_we,
-			&x, &y, &z);
-	if (!cube->textures.stored[3])
-		error(0, "Invalid texture\n", 0);
-	// check_value(cube->textures.stored);
+	check_value(cube);
+	to_xpm_suite(cube);
 }
