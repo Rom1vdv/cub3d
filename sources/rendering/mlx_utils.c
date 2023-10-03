@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:05:41 by romvan-d          #+#    #+#             */
-/*   Updated: 2023/09/22 15:28:01 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:18:36 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ static void	check_size(int *width, int *height)
 		error(0, "Invalid texture height\n", 0);
 }
 
+// static int	check_value(char *stored)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < 4)
+// 	{
+// 		if (!stored[i])
+// 			error(0, "Invalid texture\n", 0);
+// 		i++;
+// 	}
+// 	return (1);
+// }
+
 void	to_xpm(t_mlx *mlx, t_cube *cube)
 {
 	int	x;
@@ -77,4 +91,7 @@ void	to_xpm(t_mlx *mlx, t_cube *cube)
 			&x, &y, &z);
 	cube->textures.stored[3] = mlx_get_data_addr(cube->textures.wall_we,
 			&x, &y, &z);
+	if (!cube->textures.stored[3])
+		error(0, "Invalid texture\n", 0);
+	// check_value(cube->textures.stored);
 }

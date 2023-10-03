@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:29:09 by rom1              #+#    #+#             */
-/*   Updated: 2023/09/22 15:24:26 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:07:52 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	init_mlx(t_mlx *mlx, t_cube *cube)
 		return (0);
 	mlx->address = mlx_get_data_addr(mlx->img, &mlx->bits_per_pixel,
 			&mlx->line_length, &mlx->endian);
+	if (!mlx->address)
+		return (0);
 	to_xpm(mlx, cube);
 	return (run_mlx(mlx, cube));
 }
