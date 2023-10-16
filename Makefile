@@ -30,8 +30,7 @@ OBJS_DIR = objs
 MLX = libmlx.dylib
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx -g
-SFLAGS = -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I ./includes -I ./mlx
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 RM = rm -f
 
@@ -47,7 +46,7 @@ all: $(NAME)
 
 $(NAME): $(MLX) $(OBJS)
 	@echo "$(BOLD)Linking $(CYAN)$@$(RESET)"
-	@$(CC) $(CFLAGS) $(SFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
 
 $(MLX) : 
 		make -C mlx
@@ -65,7 +64,7 @@ clean:
 fclean: clean
 	@echo "$(BOLD)Cleaning $(YELLOW)$(NAME)$(RESET)"
 	@$(RM) $(NAME) $(MLX)
-	@make clean -C mlx
+	# @make clean -C mlx
 
 re: fclean all
 

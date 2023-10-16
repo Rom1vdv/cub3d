@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburnott <aburnott@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:22:06 by aburnott          #+#    #+#             */
-/*   Updated: 2023/09/22 16:24:03 by aburnott         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:11:37 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,45 @@
 
 int	get_color(char *line, int type, t_cube *cub, int start)
 {
+	char *tmp;
+
 	if (type == 1)
-		set_color(cub, ft_strdup(line, start + 2, ft_strlen(line)), 2);
+	{
+		tmp = ft_strdup(line, start + 2, ft_strlen(line));
+		set_color(cub, tmp, 2);
+		free(tmp);
+	}
 	else if (type == 2)
-		set_color(cub, ft_strdup(line, start + 2, ft_strlen(line)), 1);
+	{
+		tmp = ft_strdup(line, start + 2, ft_strlen(line));
+		set_color(cub, tmp, 1);
+		free(tmp);
+	}
 	return (0);
 }
 
 int	get_texture(char *line, int type, t_cube *cub, int start)
 {
+	char *tmp;
+
+	tmp = ft_strdup(line, start + 3, ft_strlen(line) - 1);
 	if (type == 1)
 	{
-		cub->textures.no = \
-			parse_texture(ft_strdup(line, start + 3, ft_strlen(line) - 1));
+		cub->textures.no = parse_texture(tmp);
 	}
 	else if (type == 2)
 	{
-		cub->textures.so = \
-			parse_texture(ft_strdup(line, start + 3, ft_strlen(line) - 1));
+		cub->textures.so = parse_texture(tmp);
 	}
 	else if (type == 3)
 	{
-		cub->textures.we = \
-			parse_texture(ft_strdup(line, start + 3, ft_strlen(line) - 1));
+		cub->textures.we = parse_texture(tmp);
 	}
 	else if (type == 4)
 	{
-		cub->textures.ea = \
-			parse_texture(ft_strdup(line, start + 3, ft_strlen(line) - 1));
+		cub->textures.ea = parse_texture(tmp);
 	}
+	free(tmp);
 	return (0);
 }
 
